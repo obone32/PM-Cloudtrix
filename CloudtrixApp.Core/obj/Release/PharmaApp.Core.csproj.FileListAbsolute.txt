@@ -1,0 +1,14 @@
+C:\dev\PharmaApp\PharmaApp.Core\bin\Release\PharmaApp.Core.dll
+C:\dev\PharmaApp\PharmaApp.Core\bin\Release\PharmaApp.Core.pdb
+C:\dev\PharmaApp\PharmaApp.Core\bin\Release\System.Web.Mvc.dll
+C:\dev\PharmaApp\PharmaApp.Core\bin\Release\System.Web.Mvc.xml
+C:\dev\PharmaApp\PharmaApp.Core\obj\Release\PharmaApp.Core.csprojResolveAssemblyReference.cache
+C:\dev\PharmaApp\PharmaApp.Core\obj\Release\PharmaApp.Core.dll
+C:\dev\PharmaApp\PharmaApp.Core\obj\Release\PharmaApp.Core.pdb
+C:\Users\microasif\Desktop\PharmaX\Project\PharmaApp.Core\bin\Release\PharmaApp.Core.dll
+C:\Users\microasif\Desktop\PharmaX\Project\PharmaApp.Core\bin\Release\PharmaApp.Core.pdb
+C:\Users\microasif\Desktop\PharmaX\Project\PharmaApp.Core\bin\Release\System.Web.Mvc.dll
+C:\Users\microasif\Desktop\PharmaX\Project\PharmaApp.Core\bin\Release\System.Web.Mvc.xml
+C:\Users\microasif\Desktop\PharmaX\Project\PharmaApp.Core\obj\Release\PharmaApp.Core.csprojResolveAssemblyReference.cache
+C:\Users\microasif\Desktop\PharmaX\Project\PharmaApp.Core\obj\Release\PharmaApp.Core.dll
+C:\Users\microasif\Desktop\PharmaX\Project\PharmaApp.Core\obj\Release\PharmaApp.Core.pdb

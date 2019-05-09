@@ -1,0 +1,87 @@
+﻿@model IEnumerable<PharmaApp.Core.DataModel.CategoryModel>
+@{
+    ViewBag.Title = "Category";
+}
+
+
+
+<div class="wraper container-fluid">
+    <div class="page-title">
+        <h3 class="title">Category </h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">New Category</h3>
+                </div>
+                <div class="panel-body">
+                    @using (Html.BeginForm("Category", "Admin", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            <label for="Name">Name</label>
+                            @Html.TextBox("Name", null, new { @class = "form-control", @placeholder = "Enter Name " })
+                            @Html.ValidationMessage("Name", "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="Description">Description</label>
+                            @Html.TextArea("Description", null, new { @class = "form-control", @rows="5", @placeholder = "Description" })
+                            @Html.ValidationMessage("Description", "", new { @class = "text-danger" })
+                        </div>
+                        <button type="submit" class="btn btn-purple">
+                            Submit
+                        </button>
+                    }
+                </div><!-- panel-body -->
+            </div>
+        </div>
+        <div class="col-lg-6">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Category List</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Name)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Description)
+                                        </th>
+                                        <th>action</th>
+                                    </tr>
+                                </thead>
+                                @foreach (var item in Model)
+                                {
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Description)
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("DeleteCategory", "Admin", new {categoryId = item.Id})" onclick="return confirm('Are you sure you want to Remove this ?')" class="m-b-5 center" style="color: #ff0000">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>

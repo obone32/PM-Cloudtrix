@@ -1,0 +1,85 @@
+﻿@model CloudtrixApp.Core.DataModel.CustomerModel
+@{
+    ViewBag.Title = "Edit Customer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="wraper container-fluid">
+    <div class="page-title">
+        <h3 class="title">Customer </h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Update Customer</h3>
+                </div>
+                <div class="panel-body">
+                    @using (Html.BeginForm("EditCustomer", "Admin", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(x=>x.Id)
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Name)
+                            @Html.TextBoxFor(x => x.Name, null, new { @class = "form-control", @placeholder = "Enter Name " })
+                            @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.ContactPerson)
+                            @Html.TextBoxFor(x => x.ContactPerson, null, new { @class = "form-control", @placeholder = "Please Enter ContactPerson" })
+                            @Html.ValidationMessageFor(x => x.ContactPerson, "", new { @class = "text-danger" })
+                        </div>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Email)
+                                @Html.TextBoxFor(x => x.Email, null, new { @class = "form-control", @placeholder = "Enter Email " })
+                                @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Phone)
+                                @Html.TextBoxFor(x => x.Phone, null, new { @class = "form-control", @placeholder = "Enter Phone Number " })
+                                @Html.ValidationMessageFor(x => x.Phone, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Address)
+                                @Html.TextAreaFor(x => x.Address, new { @class = "form-control", @rows = "5", @placeholder = "Address" })
+                                @Html.ValidationMessageFor(x => x.Address, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.City)
+                                @Html.TextBoxFor(x => x.City, null, new { @class = "form-control", @placeholder = "Please Enter City" })
+                                @Html.ValidationMessageFor(x => x.City, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.State)
+                                @Html.TextBoxFor(x => x.State, null, new { @class = "form-control", @placeholder = "Please Enter State" })
+                                @Html.ValidationMessageFor(x => x.State, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.GSTIN)
+                                @Html.TextBoxFor(x => x.GSTIN, null, new { @class = "form-control", @placeholder = "Please Enter GSTIN" })
+                                @Html.ValidationMessageFor(x => x.GSTIN, "", new { @class = "text-danger" })
+                            </div>
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Notes)
+                                @Html.TextBoxFor(x => x.Notes, null, new { @class = "form-control", @rows = "5", @placeholder = "Notes" })
+                                @Html.ValidationMessageFor(x => x.Notes, "", new { @class = "text-danger" })
+                            </div>
+                        <button type="submit" class="btn btn-purple">
+                            Update
+                        </button>
+                        @Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer, @class = "btn btn-default" })
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+

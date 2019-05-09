@@ -1,0 +1,188 @@
+﻿@model CloudtrixApp.Core.ViewModel.DashboardViewModel
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="wraper container-fluid">
+    <div class="page-title">
+        <h3 class="title">Dashboard </h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="tile-stats white-bg">
+                        <div class="status">
+                            <h3 class="m-t-0 text-info"><i class="fa fa-list"></i> +</h3>
+                            <p>
+                            </p>
+                        </div>
+                        <div class="chart-inline">
+                            <span id="dashboard1"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="tile-stats white-bg">
+                        <div class="status">
+                            <h3 class="m-t-0 text-danger"><i class="fa fa-medkit"></i> +</h3>
+                            <p>
+                                Total 
+                            </p>
+                        </div>
+                        <span id="dashboard2"></span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="tile-stats white-bg">
+                      
+                            <div class="status">
+                                <h3 class="m-t-0 text-success"><i class="fa fa-shopping-cart"></i> *</h3>
+                                <p>
+                                    No
+                                </p>
+                            </div>
+                       
+                        <div class="col-sm-4 m-t-20">
+                            <span id="dashboard3"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="tile-stats white-bg">
+                            <div class="status">
+                                <h3 class="m-t-0 text-success"><i class="fa fa-money"></i> ***</h3>
+                                <p>
+                                     Total  Amount
+                                </p>
+                            </div>
+                        <div class="col-sm-8">
+                            <div class="status">
+                                <h3 class="m-t-15 text-warning"><i class="fa fa-life-ring"></i> 35</h3>
+                                <p>
+                                    New 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 m-t-20">
+                            <span id="dashboard4"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="tile-stats white-bg">
+                        <div class="status">
+                            <h3 class="m-t-0 text-danger"><i class="fa fa-area-chart"></i>//*//</h3>
+                            <p>
+                               Total  Quantity
+                            </p>
+                        </div>
+                        <span id="dashboard2"></span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="tile-stats white-bg">
+                        <div class="status">
+                            <h3 class="m-t-0 text-info"><i class="fa fa-users"></i> +</h3>
+                            <p>
+                                Total *
+                            </p>
+                        </div>
+                        <div class="chart-inline">
+                            <span id="dashboard1"></span>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col-sm-6">
+                    <div class="tile-stats white-bg">
+
+                        <div class="status">
+                            <h3 class="m-t-0 text-success"><i class="fa fa-shopping-cart"></i> Projects</h3>
+                            <p>
+                                No of Projects
+                            </p>
+                        </div>
+
+                        <div class="col-sm-4 m-t-20">
+                            <span id="dashboard3"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="tile-stats white-bg">
+                        <div class="status">
+                            <h3 class="m-t-0 text-success"><i class="fa fa-money"></i> -*-</h3>
+                            <p>
+                               
+                            </p>
+                        </div>
+                        <div class="col-sm-8">
+                    <div class="status">
+                        <h3 class="m-t-15 text-warning"><i class="fa fa-life-ring"></i> 35</h3>
+                        <p>
+                            
+                        </p>
+                    </div>
+                </div>
+                        <div class="col-sm-4 m-t-20">
+                            <span id="dashboard4"></span>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet">
+                <div class="portlet-heading">
+                    <h3 class="portlet-title text-dark text-uppercase"> Project List </h3>
+                    <div class="portlet-widgets">
+                        <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                        <span class="divider"></span>
+                        <a data-toggle="collapse" data-parent="#accordion1" href="#portlet3"><i class="ion-minus-round"></i></a>
+                        <span class="divider"></span>
+                        <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="portlet3" class="panel-collapse collapse in">
+                    <div class="portlet-body">
+                        <table class="table table-hover table-bordered" id="datatable">
+                            <thead>
+                                <tr>
+                                    <th>
+                                       Name
+                                    </th>
+                                    <th>
+                                       No
+                                    </th>
+                                    <th>
+                                       Total Quantity
+                                    </th>
+                                  
+                                    <th>
+                                    </th>
+                                    <th>
+                                    </th>
+
+                                 
+                                </tr>
+                            </thead>
+                          
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

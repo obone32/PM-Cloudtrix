@@ -1,0 +1,57 @@
+﻿@model PharmaApp.Core.DataModel.SupplierModel
+@{
+    ViewBag.Title = "AddSupplier";
+}
+
+<div class="wraper container-fluid">
+    <div class="page-title">
+        <h3 class="title">Supplier </h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">New Supplier</h3>
+                </div>
+                <div class="panel-body">
+                    @using (Html.BeginForm("AddSupplier", "Admin", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Name)
+                            @Html.TextBoxFor(x => x.Name, null, new { @class = "form-control", @placeholder = "Enter Name " })
+                            @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Email)
+                            @Html.TextBoxFor(x => x.Email, null, new { @class = "form-control", @placeholder = "Enter Email " })
+                            @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Phone)
+                            @Html.TextBoxFor(x => x.Phone, null, new { @class = "form-control", @placeholder = "Enter Phone Number " })
+                            @Html.ValidationMessageFor(x => x.Phone, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Address)
+                            @Html.TextAreaFor(x => x.Address, new { @class = "form-control", @rows = "3", @placeholder = "Address" })
+                            @Html.ValidationMessageFor(x => x.Address, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Notes)
+                            @Html.TextAreaFor(x => x.Notes,  new { @class = "form-control", @rows = "3", @placeholder = "Notes" })
+                            @Html.ValidationMessageFor(x => x.Notes, "", new { @class = "text-danger" })
+                        </div>
+                        <button type="submit" class="btn btn-purple">
+                            Submit
+                        </button>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

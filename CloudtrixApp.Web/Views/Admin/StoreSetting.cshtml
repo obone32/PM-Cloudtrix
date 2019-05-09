@@ -1,0 +1,117 @@
+﻿@model CloudtrixApp.Core.DataModel.StoreSettingModel
+@{
+    ViewBag.Title = "Store Setting";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (TempData["Msg"] != null)
+{
+    <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            ×
+        </button>
+       @TempData["Msg"].ToString()
+    </div>
+}
+@if (TempData["FMsg"] != null)
+{
+    <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            ×
+        </button>
+        @TempData["FMsg"].ToString()
+    </div>
+}
+
+
+
+<div class="wraper container-fluid">
+    <div class="page-title">
+        <h3 class="title">Store Setting </h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Update Store Seting</h3>
+                </div>
+                <div class="panel-body">
+                    @using (Html.BeginForm("StoreSetting", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(x=> x.Id)
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="col-md-5 col-md-offset-2">
+                                    <img src="@Model.Logo" alt="img" id="UploadFile" class="img-thumbnail" style="height: 150px" width="150px" /> <br />
+                                    <input type="file" name="logoPostedFileBase" accept="image/x-png, image/gif, image/jpeg" id="FileUpload" onchange="PreviewImage()" />
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.StoreName)
+                            @Html.TextBoxFor(x => x.StoreName, null, new { @class = "form-control", @placeholder = "Enter Name " })
+                            @Html.ValidationMessageFor(x => x.StoreName, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Currency)
+                            @Html.TextBoxFor(x => x.Currency, null, new { @class = "form-control", @placeholder = "Enter Currency Symbol" })
+                            @Html.ValidationMessageFor(x => x.Currency, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Email)
+                            @Html.TextBoxFor(x => x.Email, null, new { @class = "form-control", @placeholder = "Enter Email " })
+                            @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Web)
+                            @Html.TextBoxFor(x => x.Web, null, new { @class = "form-control", @placeholder = "Enter Web Address " })
+                            @Html.ValidationMessageFor(x => x.Web, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Phone)
+                            @Html.TextBoxFor(x => x.Phone, null, new { @class = "form-control", @placeholder = "Enter Phone Number " })
+                            @Html.ValidationMessageFor(x => x.Phone, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Address)
+                            @Html.TextAreaFor(x => x.Address, new { @class = "form-control", @rows = "5", @placeholder = "Address" })
+                            @Html.ValidationMessageFor(x => x.Address, "", new { @class = "text-danger" })
+                        </div>
+                      
+                        <button type="submit" class="btn btn-purple">
+                            Submit
+                        </button>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts{ 
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+});
+
+    function PreviewImage() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("FileUpload").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("UploadFile").src = oFREvent.target.result;
+        };
+    };
+</script>
+}

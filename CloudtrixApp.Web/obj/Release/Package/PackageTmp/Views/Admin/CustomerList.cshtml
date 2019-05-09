@@ -1,0 +1,75 @@
+﻿@model IEnumerable<PharmaApp.Core.DataModel.CustomerModel>
+@{
+    ViewBag.Title = "CustomerList";
+}
+
+<div class="wraper container-fluid">
+    <div class="page-title">
+        <a href="@Url.Action("AddCustomer", "Admin")" class="btn btn-primary pull-left">Add Customer </a>
+        <br />
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Customer List </h3>
+                    
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <table class="table table-hover" id="datatable">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Name)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Email)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Phone)
+                                        </th>
+                                       
+                                        <th>action</th>
+                                    </tr>
+                                </thead>
+                                @foreach (var item in Model)
+                                {
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Email)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Phone)
+                                            </td>
+                                          
+                                            <td>
+                                                <a href="@Url.Action("EditCustomer", "Admin", new {customerId = item.Id})"  class="btn btn-icon btn-warning btn-xs m-b-5">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                @*<a href="@Url.Action("DeleteCustomer", "Admin", new {customerId = item.Id})" onclick="return confirm('Are you sure you want to Remove this customer?')" class="btn btn-icon btn-danger btn-xs m-b-5">
+                                                    <i class="fa fa-remove"></i>
+                                                </a>*@
+                                                <a onclick="alert('Some delete operation has been restricted in demo version')" class="btn btn-icon btn-danger btn-xs m-b-5">
+                                                 <i class="fa fa-remove"></i>
+                                                </a>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

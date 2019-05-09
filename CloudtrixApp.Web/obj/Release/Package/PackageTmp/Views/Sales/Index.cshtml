@@ -1,0 +1,105 @@
+﻿
+@model IEnumerable<PharmaApp.Core.DataModel.SalesModel>
+@{
+    ViewBag.Title = "Sales List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="wraper container-fluid">
+    <div class="page-title">
+        <a href="@Url.Action("AddSale", "Sales")" class="btn btn-primary pull-left">New Sales </a>
+        <br />
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Sales List </h3>
+
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <table class="table table-hover table-bordered"  id="datatable">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Customer
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Total)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Discount)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.GrandTotal)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Status)
+                                        </th>
+
+                                        <th>action</th>
+                                    </tr>
+                                </thead>
+                                @foreach (var item in Model)
+                                {
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                @item.CustomerModel.Name
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Total)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Discount)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.GrandTotal)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Status)
+                                            </td>
+
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-purple dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="true">
+                                                        action <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li>
+                                                            <a href="@Url.Action("EditSale", "Sales", new {saleId = item.Id})"><i class="fa fa-edit"></i> Edit</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="@Url.Action("DeleteSale", "Sales", new { saleId = item.Id })" onclick="return confirm('Are you sure you want to Remove this Sale ?')"> <i class="fa fa-remove"></i> Delete</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="@Url.Action("SaleInvoice","Sales", new {saleId = item.Id,style=1})"><i class="fa fa-print"></i> Invoice 1</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="@Url.Action("SaleInvoice","Sales", new {saleId = item.Id,style=2})"><i class="fa fa-print"> </i> Invoice 2</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+                                                @*<a href="@Url.Action("EditSale", "Sales", new {saleId = item.Id})" class="btn btn-icon btn-warning btn-xs m-b-5">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <a href="@Url.Action("DeleteSale", "Sales", new {saleId = item.Id})" onclick="return confirm('Are you sure you want to Remove this Sale ?')" class="btn btn-icon btn-danger btn-xs m-b-5">
+                                                    <i class="fa fa-remove"></i>
+                                                </a>*@
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

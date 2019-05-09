@@ -1,0 +1,207 @@
+﻿@{
+    ViewBag.Title = "Add Sales ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .bg_1 {
+        background-color: green;
+    }
+
+    .bg_2 {
+        background-color: gray;
+    }
+
+
+    .error_msg {
+        color: #f00;
+        display: none;
+    }
+
+    .table {
+        /* width: 100%; */
+        /* max-width: 100%; */
+        margin-bottom: 0px;
+    }
+</style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css" rel="stylesheet" />
+
+
+<div class="wraper container-fluid">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Sales</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <div class="form-inline">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Name">Customer : </label>
+                                <select id="Customer" class="form-control" onchange="blankme(this.id)">
+                                    <option value="">Select Customer</option>
+                                </select>
+                                <small id="error_Customer" class="form-text error_msg col-md-offset-4 ">Select Customer from list</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="SCode"> Code : </label>
+                                @Html.TextBox("SCode", null, new { @class = "form-control", @placeholder = "Enter Sale No", onkeyup = "blankme(this.id)" })
+                                <small id="error_SCode" class="form-text error_msg col-md-offset-2 "> Sales No is Required</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="SDate"> Date : </label>
+                                @Html.TextBox("SDate", null, new { @class = "form-control mydatepicker", @placeholder = "Select Sales Date ", onchange = "blankme(this.id)" })
+                                <small id="error_SDate" class="form-text error_msg col-md-offset-2 ">Sales Date is Required</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br /> <br /> <br /> <br />
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="SCategory"> Category : </label>
+                                <select id="SCategory" class="form-control">
+                                    <option value="">Select Category</option>
+                                </select>
+                               
+                            </div>
+                            <div class="form-group">
+                                <label for="SMedicine"> Medicine : </label>
+                                <select id="SMedicine" class="form-control">
+                                    <option value="">Select Medicine</option>
+                                </select>
+                                <small id="error_SMedicine" class="form-text error_msg">Select Medicine from list</small>
+                            </div>
+                            <div class="form-group" id="medicineDetails">
+                                @*<p style="font-size:11px" id="medicineDetails"></p>*@
+                                @*buying price : <strong>12.99</strong>, Batch No: <strong>2255662</strong>*@
+
+                            </div>
+                            <div class="form-group">
+                                <label for="SQuantity"> Quantity : </label>
+                                @Html.TextBox("SQuantity", null, new { @class = "form-control", @type = "number", @placeholder = "Enter Quantity " })
+                                <small id="error_SQuantity" class="form-text error_msg">Quantity is required</small>
+                                <small id="error_SQuantitycheck" class="form-text error_msg">Quantity Must less than stock</small>
+                            </div>
+                            <div class="form-group m-b-0">
+                                <button type="submit" id="SaleaddToList" class="btn btn-info">
+                                    Add To List
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-lg-offset-1 col-md-7">
+                        <br />
+                        <div class="panel panel-color panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Product List</h3>
+                            </div>
+                            <div class="panel-body">
+                                <table class="table table-hover table-responsive" id="detailsTable">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th style="width:280px">Name</th>
+                                            <th>Unit</th>
+                                            <th>Qnt</th>
+                                            <th>Amt</th>
+                                            <th style="width:20px"></th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td> <strong> Total:</strong> </td>
+                                            <td> <strong id="SSubTotal">  </strong> </td>
+                                            <td></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                        <small id="error_SSubTotal" class="form-text error_msg">Atleast add one item</small>
+                        <br />
+                        <br />
+                        <div class="form-horizontal">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="Notes"> Notes: </label>
+                                    @Html.TextArea("SNotes", new { @class = "form-control col-md-7", @rows = "2", @placeholder = "Enter Notes" })
+                                </div>
+
+
+                                <div class="form-group col-md-6">
+                                    <label for="Date"> Payment Method : </label>
+                                    @Html.DropDownList("SPayment", new List<SelectListItem>
+                                        {
+                                            new SelectListItem() {Text = "Cash", Value="Cash"},
+                                            new SelectListItem() {Text = "Check", Value="Check"},
+                                        }, "Select Payment", new { @class = "form-control", onchange = "blankme(this.id)" })
+
+                                    <small id="error_SPayment" class="form-text error_msg">Select Payment Method</small>
+                                </div>
+
+                                <div class="col-md-offset-1 col-md-5">
+                                    <div class="form-group">
+                                        <label for="Status"> Status : </label>
+                                        @Html.DropDownList("SaleStatus", new List<SelectListItem>
+                                        {
+                                            new SelectListItem() {Text = "Due", Value="Due"},
+                                            new SelectListItem() {Text = "Paid", Value="Paid"},
+                                        }, "Select Status", new { @class = "form-control", onchange = "blankme(this.id)" })
+
+                                        <small id="error_SaleStatus" class="form-text error_msg">Select Sale Status</small>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-offset-1 col-md-3">
+                                <div class="form-group">
+                                    <label for="SDiscount"> Discount : </label>
+                                    @Html.TextBox("SDiscount", null, new { @class = "form-control", @Value = "0", @type = "number", @placeholder = "Discount Amount ", onchange = "SDiscountAmount()" })
+                                    <small id="error_SDiscount" class="form-text error_msg">Discount can't be empty</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="SGrandTotal"> Grand Total : </label>
+                                    <h5 id="SGrandTotal" class="form-control"> </h5>
+                                    <small id="error_SGrandTotal" class="form-text error_msg">Total is empty</small>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-horizontal">
+                            <label> </label>
+                            <input id="SBtnSave" class="btn btn-success col-md-3 pull-right" type="submit" value="Save Sale" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- panel-body -->
+        </div>
+        <!-- panel -->
+    </div>
+</div>
+
+
+@section scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
+   @Scripts.Render("~/bundles/App2")
+
+    <script type="text/javascript">
+
+    </script>
+}

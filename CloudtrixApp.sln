@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudtrixApp.Core", "CloudtrixApp.Core\CloudtrixApp.Core.csproj", "{5D3209C4-A0F3-451F-B91A-CCB473F87F00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudtrixApp.Data", "CloudtrixApp.Data\CloudtrixApp.Data.csproj", "{A070ADA3-C5D0-4468-AE10-A1659C29278B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudtrixApp.Dependency", "CloudtrixApp.Dependency\CloudtrixApp.Dependency.csproj", "{87DA8A95-1652-4332-8A4B-4EB20B99F511}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudtrixApp.Web", "CloudtrixApp.Web\CloudtrixApp.Web.csproj", "{DADDCCD5-9B14-45FE-B5AF-25FE0979D2B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D3209C4-A0F3-451F-B91A-CCB473F87F00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D3209C4-A0F3-451F-B91A-CCB473F87F00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D3209C4-A0F3-451F-B91A-CCB473F87F00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D3209C4-A0F3-451F-B91A-CCB473F87F00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A070ADA3-C5D0-4468-AE10-A1659C29278B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A070ADA3-C5D0-4468-AE10-A1659C29278B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A070ADA3-C5D0-4468-AE10-A1659C29278B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A070ADA3-C5D0-4468-AE10-A1659C29278B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87DA8A95-1652-4332-8A4B-4EB20B99F511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87DA8A95-1652-4332-8A4B-4EB20B99F511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87DA8A95-1652-4332-8A4B-4EB20B99F511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87DA8A95-1652-4332-8A4B-4EB20B99F511}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DADDCCD5-9B14-45FE-B5AF-25FE0979D2B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DADDCCD5-9B14-45FE-B5AF-25FE0979D2B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DADDCCD5-9B14-45FE-B5AF-25FE0979D2B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DADDCCD5-9B14-45FE-B5AF-25FE0979D2B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

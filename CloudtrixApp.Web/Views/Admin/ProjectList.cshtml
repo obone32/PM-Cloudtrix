@@ -1,0 +1,76 @@
+﻿@model IEnumerable<CloudtrixApp.Core.DataModel.ProjectModel>
+@{
+    ViewBag.Title = "ProjectList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="wraper container-fluid">
+    <div class="page-title">
+        <a href="@Url.Action("AddProject", "Admin")" class="btn btn-primary pull-left">Add Project </a>
+        <br />
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Project List </h3>
+
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <table class="table table-hover table-bordered table-responsive" id="datatable">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ProjectName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ArchitectModel.ArchitectName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Description)
+                                        </th>
+
+                                        <th>action</th>
+                                    </tr>
+                                </thead>
+                                @foreach (var item in Model)
+                                {
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ProjectName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ArchitectModel.ArchitectName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Description)
+                                            </td>
+
+                                            <td>
+                                                <a href="@Url.Action("EditProject", "Admin", new {projectId = item.Id})" class="btn btn-icon btn-warning btn-xs m-b-5">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <a href="@Url.Action("DeleteProject", "Admin", new {projectId = item.Id})" onclick="return confirm('Are you sure you want to Remove this Project?')" class="btn btn-icon btn-danger btn-xs m-b-5">
+                                                    <i class="fa fa-remove"></i>
+                                                </a>
+                                                @*<a onclick="alert('Some delete operation has been restricted in demo version')" class="btn btn-icon btn-danger btn-xs m-b-5">
+                             <i class="fa fa-remove"></i>
+                            </a>*@
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

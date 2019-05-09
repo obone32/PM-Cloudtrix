@@ -1,0 +1,11 @@
+E:\Downloads\codecanyon-21717916-pharmax-pharmacy-management-system\Project\Sending_Project\PharmaApp.Core\bin\Debug\PharmaApp.Core.dll.config
+E:\Downloads\codecanyon-21717916-pharmax-pharmacy-management-system\Project\Sending_Project\PharmaApp.Core\bin\Debug\PharmaApp.Core.dll
+E:\Downloads\codecanyon-21717916-pharmax-pharmacy-management-system\Project\Sending_Project\PharmaApp.Core\bin\Debug\PharmaApp.Core.pdb
+E:\Downloads\codecanyon-21717916-pharmax-pharmacy-management-system\Project\Sending_Project\PharmaApp.Core\bin\Debug\EntityFramework.dll
+E:\Downloads\codecanyon-21717916-pharmax-pharmacy-management-system\Project\Sending_Project\PharmaApp.Core\bin\Debug\EntityFramework.SqlServer.dll
+E:\Downloads\codecanyon-21717916-pharmax-pharmacy-management-system\Project\Sending_Project\PharmaApp.Core\bin\Debug\System.Web.Mvc.dll
+E:\Downloads\codecanyon-21717916-pharmax-pharmacy-management-system\Project\Sending_Project\PharmaApp.Core\bin\Debug\EntityFramework.xml
+E:\Downloads\codecanyon-21717916-pharmax-pharmacy-management-system\Project\Sending_Project\PharmaApp.Core\bin\Debug\EntityFramework.SqlServer.xml
+E:\Downloads\codecanyon-21717916-pharmax-pharmacy-management-system\Project\Sending_Project\PharmaApp.Core\bin\Debug\System.Web.Mvc.xml
+E:\Downloads\codecanyon-21717916-pharmax-pharmacy-management-system\Project\Sending_Project\PharmaApp.Core\obj\Debug\PharmaApp.Core.dll
+E:\Downloads\codecanyon-21717916-pharmax-pharmacy-management-system\Project\Sending_Project\PharmaApp.Core\obj\Debug\PharmaApp.Core.pdb
