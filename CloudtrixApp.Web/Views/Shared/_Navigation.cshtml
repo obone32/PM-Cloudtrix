@@ -23,6 +23,9 @@
             <li class="@Html.IsSelected("Admin", "InvoiceList") @Html.IsSelected("Admin", "Invoice") @Html.IsSelected("Admin", "EditInvoice")">
                 <a href="@Url.Action("InvoiceList", "Admin")"><i class="fa fa-intersex"></i> <span class="nav-label">Invoice</span></a>
             </li>
+            <li class="@Html.IsSelected("Admin", "ReceipttList") @Html.IsSelected("Admin", "AddReceipt") @Html.IsSelected("Admin", "EditReceipt")">
+                <a href="@Url.Action("ReceiptList", "Admin")"><i class="fa fa-bars"></i> <span class="nav-label">Receipt</span></a>
+            </li>
             <li class="@Html.IsSelected("Admin", "TimeSheetList") @Html.IsSelected("Admin", "AddTimeSheet") @Html.IsSelected("Admin", "EditTimeSheet")">
                 <a href="@Url.Action("TimeSheetList", "Admin")"><i class="fa fa-users"></i> <span class="nav-label">Time Sheet</span></a>
             </li>

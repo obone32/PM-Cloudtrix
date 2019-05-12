@@ -27,6 +27,7 @@ namespace CloudtrixApp.Dependency
             kernel.Bind<IArchitectRepository>().To<ArchitectRepository>();
             kernel.Bind<IEmployeeRepository>().To<EmployeeRepository>();
             kernel.Bind<ICustomerRepository>().To<CustomerRepository>();
+            kernel.Bind<IReceiptRepository>().To<ReceiptRepository>();
             kernel.Bind<IProjectRepository>().To<ProjectRepository>();
             kernel.Bind<ITimeSheetRepository>().To<TimeSheetRepository>();
             kernel.Bind<IInvoiceRepository>().To<InvoiceRepository>();

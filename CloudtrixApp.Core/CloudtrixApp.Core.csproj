@@ -75,6 +75,7 @@
     <Compile Include="Interface\IInvoiceItemRepository.cs" />
     <Compile Include="Interface\IInvoiceRepository.cs" />
     <Compile Include="Interface\IProjectRepository.cs" />
+    <Compile Include="Interface\IReceiptRepository.cs" />
     <Compile Include="Interface\IStoreSettingRepository.cs" />
     <Compile Include="Interface\ITimeSheetRepository.cs" />
     <Compile Include="Interface\IUserRepository.cs" />

@@ -20,6 +20,7 @@ namespace CloudtrixApp.Web.Controllers
         private readonly IEmployeeRepository _employeeRepository;
         private readonly ITimeSheetRepository _timesheetRepository;
         private readonly ICustomerRepository _customerRepository;
+        private readonly IReceiptRepository _receiptRepository;
         private readonly IProjectRepository _projectRepository;
         private readonly IStoreSettingRepository _storeRepository;
         private readonly IInvoiceItemRepository _InvoiceItemRepository;
@@ -31,6 +32,7 @@ namespace CloudtrixApp.Web.Controllers
                                IEmployeeRepository employeeRepository,
                                ITimeSheetRepository timesheetRepository,
                                ICustomerRepository customerRepository,
+                               IReceiptRepository receiptRepository,
                                IProjectRepository projectRepository,
                                IStoreSettingRepository storeRepository,
                                IInvoiceItemRepository InvoiceItemRepository,
@@ -40,6 +42,7 @@ namespace CloudtrixApp.Web.Controllers
             _employeeRepository = employeeRepository;
             _timesheetRepository = timesheetRepository;
             _customerRepository = customerRepository;
+            _receiptRepository = receiptRepository;
             _projectRepository = projectRepository;
             _storeRepository = storeRepository;
             _InvoiceRepository = InvoiceRepository;
@@ -213,6 +216,61 @@ namespace CloudtrixApp.Web.Controllers
                 return RedirectToAction("CustomerList");
             }
             return RedirectToAction("CustomerList");
+        }
+        #endregion
+
+        #region Receipt
+        [HttpGet]
+        public ActionResult AddReceipt()
+        {
+            ReceiptDropdown();
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddReceipt(ReceiptModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                ReceiptDropdown();
+                _receiptRepository.Insert(model);
+                return RedirectToAction("ReceiptList");
+            }
+            return View(model);
+        }
+        public ActionResult ReceiptList()
+        {
+            return View(_receiptRepository.All(x => x.CustomerModel));
+        }
+        [HttpGet]
+        public ActionResult EditReceipt(int ReceiptId)
+        {
+            var Receipt = _receiptRepository.Find(ReceiptId);
+            ReceiptDropdown();
+            return View(Receipt);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditReceipt(ReceiptModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                ReceiptDropdown();
+                return View(model);
+            }
+            _receiptRepository.Update(model);
+            return RedirectToAction("ReceiptList");
+        }
+
+        public ActionResult DeleteReceipt(int ReceiptId)
+        {
+            var Receipt = _receiptRepository.Find(ReceiptId);
+            if (Receipt != null)
+            {
+                _receiptRepository.Remove(ReceiptId);
+                return RedirectToAction("ReceiptList");
+            }
+            return RedirectToAction("ReceiptList");
         }
         #endregion
 
@@ -518,7 +576,7 @@ namespace CloudtrixApp.Web.Controllers
         public JsonResult GetProjectByCustomer(int customerId = 0)
         {
             if (customerId == 0)
-                return Json(_projectRepository.All(), JsonRequestBehavior.AllowGet);
+            return Json(_projectRepository.All(), JsonRequestBehavior.AllowGet);
             return Json(_projectRepository.All().Where(x => x.CustomerId == customerId), JsonRequestBehavior.AllowGet);
         }
         public JsonResult GetProjectById(int id)
@@ -535,6 +593,15 @@ namespace CloudtrixApp.Web.Controllers
             ViewBag.architect = _architectRepository.ArchitectForDropdown();
             ViewBag.customer = _customerRepository.CustomerForDropdown();
         }
+        #endregion
+
+        #region Add Receipt DropDown
+        private void ReceiptDropdown()
+        {
+            ViewBag.customer = _customerRepository.CustomerForDropdown();
+            ViewBag.project = _projectRepository.ProjectForDropdown();
+        }
+
         #endregion
 
         #region Add Invoice DropDown

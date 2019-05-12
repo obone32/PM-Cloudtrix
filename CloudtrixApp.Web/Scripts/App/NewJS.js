@@ -6,22 +6,19 @@ $(document).ready(function () {
     $('.mydatepicker').datepicker(
         { format: 'dd/mm/yyyy',autoclose:true });
     
-
     //Get Customer
     $.ajax({
         type: "GET", url: "/Admin/GetCustomer",
         datatype: "Json",
         success: function (data) {
             $.each(data, function (index, value) {
-                $('#Customer').append('<option value="' + value.Id + '">' + value.Name + '</option>')
+                $('#Customer1').append('<option value="' + value.Id + '">' + value.Name + '</option>')
             })
         }
     });
 
     // Get Project by Customer
-
-    $('#Customer').change(function () {
-        $('#Project').empty();
+    $('#Customer1').change(function () {
         $.ajax({
             type: "GET", url: "/Admin/GetProjectByCustomer",
             datatype: "Json",

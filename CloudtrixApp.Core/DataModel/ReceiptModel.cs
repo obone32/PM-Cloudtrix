@@ -36,10 +36,6 @@ namespace CloudtrixApp.Core.DataModel
 
         public string ReceivedBy { get; set; }
 
-        private class stausoptions
-        {
-            
-        }
         
     }
 }
