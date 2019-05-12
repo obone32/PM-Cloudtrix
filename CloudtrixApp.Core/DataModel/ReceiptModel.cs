@@ -28,7 +28,7 @@ namespace CloudtrixApp.Core.DataModel
         [DisplayName("Project Name")]
         [ForeignKey("ProjectModel")]
         public int ProjectId { get; set; }
-        public ArchitectModel ProjectModel { get; set; }
+        public ProjectModel ProjectModel { get; set; }
 
         public decimal Amount { get; set; }
 

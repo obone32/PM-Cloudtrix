@@ -82,7 +82,7 @@ $(document).ready(function () {
             var data = JSON.stringify({
                 InvoiceCode: $("#Code").val(),
                 InvoiceDate: $("#Date").val(),
-                CustomerId: $("#Customer").val(),
+                CustomerId: $("#Customer1").val(),
                 ProjectId: $("#Project").val(),
                 PaymentMethod: $("#Payment").val(),
                 Total: parseFloat($("#SubTotal").text()),
@@ -128,7 +128,7 @@ $(document).ready(function () {
         var payment = document.getElementById("Payment").value;
         var code = document.getElementById("Code").value;
         var idate = document.getElementById("Date").value;
-        var customer = document.getElementById("Customer").value;
+        var customer = document.getElementById("Customer1").value;
         var project = document.getElementById("Project").value;
         var total = parseFloat($("#SubTotal").text());
         var gtotal = parseFloat($("#GrandTotal").text());

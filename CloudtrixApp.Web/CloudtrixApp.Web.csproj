@@ -510,6 +510,7 @@
     <Content Include="Scripts\App\jquery.timepicker.min.css" />
     <Content Include="Scripts\App\jquery.timepicker.min.js" />
     <Content Include="Scripts\App\NewJS.js" />
+    <Content Include="Scripts\App\Receipt.js" />
     <Content Include="Scripts\App\Select2.js" />
     <Content Include="Content\adminFront\assets\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\adminFront\assets\fonts\glyphicons-halflings-regular.ttf" />

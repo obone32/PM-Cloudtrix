@@ -233,9 +233,9 @@ namespace CloudtrixApp.Web.Controllers
             if (ModelState.IsValid)
             {
                 _receiptRepository.Insert(model);
-                return Json(new { error = false, message = "Receipt saved successfully" });
+                return RedirectToAction("ReceiptList");
             }
-            return Json(new { error = true, message = "Failed to save Receipt" });
+            return View(model);
         }
         public ActionResult ReceiptList()
         {
@@ -288,6 +288,7 @@ namespace CloudtrixApp.Web.Controllers
             {
                 ProjectDropdown();
                 _projectRepository.Insert(model);
+
                 return RedirectToAction("ProjectList");
             }
             return View(model);

@@ -66,6 +66,12 @@ namespace CloudtrixApp.Web
                 "~/Scripts/App/NewJS.js",
                  "~/Scripts/App/Select2.js"));
 
+            // Receipt 
+            bundles.Add(new ScriptBundle("~/bundles/Receipt").Include(
+               //"~/Scripts/App/Invoice.js",
+               "~/Scripts/App/Receipt.js",
+                "~/Scripts/App/Select2.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
