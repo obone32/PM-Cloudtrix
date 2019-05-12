@@ -232,11 +232,10 @@ namespace CloudtrixApp.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                ReceiptDropdown();
                 _receiptRepository.Insert(model);
-                return RedirectToAction("ReceiptList");
+                return Json(new { error = false, message = "Receipt saved successfully" });
             }
-            return View(model);
+            return Json(new { error = true, message = "Failed to save Receipt" });
         }
         public ActionResult ReceiptList()
         {
