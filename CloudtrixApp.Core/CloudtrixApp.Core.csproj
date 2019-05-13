@@ -65,6 +65,7 @@
     <Compile Include="DataModel\InvoiceModel.cs" />
     <Compile Include="DataModel\ProjectModel.cs" />
     <Compile Include="DataModel\ReceiptModel.cs" />
+    <Compile Include="DataModel\PaymentStatusModel.cs" />
     <Compile Include="DataModel\StoreSettingModel.cs" />
     <Compile Include="DataModel\TimeSheetModel.cs" />
     <Compile Include="DataModel\UserAccountModel.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Interface\IEmployeeRepository.cs" />
     <Compile Include="Interface\IInvoiceItemRepository.cs" />
     <Compile Include="Interface\IInvoiceRepository.cs" />
+    <Compile Include="Interface\IPaymentStatusRepository.cs" />
     <Compile Include="Interface\IProjectRepository.cs" />
     <Compile Include="Interface\IReceiptRepository.cs" />
     <Compile Include="Interface\IStoreSettingRepository.cs" />

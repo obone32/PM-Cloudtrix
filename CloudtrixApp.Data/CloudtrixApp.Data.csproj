@@ -72,6 +72,7 @@
     <Compile Include="Repository\EmployeeRepository.cs" />
     <Compile Include="Repository\InvoiceItemRepository.cs" />
     <Compile Include="Repository\InvoiceRepository.cs" />
+    <Compile Include="Repository\PaymentStatusRepository.cs" />
     <Compile Include="Repository\ProjectRepository.cs" />
     <Compile Include="Repository\ReceiptRepository.cs" />
     <Compile Include="Repository\StoreSettingRepository.cs" />

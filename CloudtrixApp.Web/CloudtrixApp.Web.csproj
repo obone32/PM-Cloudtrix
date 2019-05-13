@@ -646,6 +646,7 @@
     <Content Include="Views\Admin\AddTimeSheet.cshtml" />
     <Content Include="Views\Admin\ReceiptList.cshtml" />
     <Content Include="Views\Admin\AddReceipt.cshtml" />
+    <Content Include="Views\Admin\AddPaymentStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

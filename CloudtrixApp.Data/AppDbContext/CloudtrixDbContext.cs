@@ -14,6 +14,7 @@ namespace CloudtrixApp.Data.AppDbContext
         public DbSet<EmployeeModel> Employee { get; set; }
         public DbSet<CustomerModel> Customers{ get; set; }
         public DbSet< ReceiptModel> Receipt { get; set; }
+        public DbSet<PaymentStatusModel> PaymentStatus { get; set; }
         public DbSet<StoreSettingModel> StoreSetting { get; set; }
         public DbSet<InvoiceModel> InvoiceModel { get; set; }
         public DbSet<InvoiceItemsModel> InvoiceItemsModel { get; set; }

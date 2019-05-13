@@ -21,6 +21,7 @@ namespace CloudtrixApp.Web.Controllers
         private readonly ITimeSheetRepository _timesheetRepository;
         private readonly ICustomerRepository _customerRepository;
         private readonly IReceiptRepository _receiptRepository;
+        private readonly IPaymentStatusRepository _paymentstatusRepository;
         private readonly IProjectRepository _projectRepository;
         private readonly IStoreSettingRepository _storeRepository;
         private readonly IInvoiceItemRepository _InvoiceItemRepository;
@@ -33,6 +34,7 @@ namespace CloudtrixApp.Web.Controllers
                                ITimeSheetRepository timesheetRepository,
                                ICustomerRepository customerRepository,
                                IReceiptRepository receiptRepository,
+                               IPaymentStatusRepository paymentstatusRepository,
                                IProjectRepository projectRepository,
                                IStoreSettingRepository storeRepository,
                                IInvoiceItemRepository InvoiceItemRepository,
@@ -43,6 +45,7 @@ namespace CloudtrixApp.Web.Controllers
             _timesheetRepository = timesheetRepository;
             _customerRepository = customerRepository;
             _receiptRepository = receiptRepository;
+            _paymentstatusRepository = paymentstatusRepository;
             _projectRepository = projectRepository;
             _storeRepository = storeRepository;
             _InvoiceRepository = InvoiceRepository;
@@ -433,6 +436,57 @@ namespace CloudtrixApp.Web.Controllers
             TempData["Msg"] = "Store setting updated successfully";
             return RedirectToAction("StoreSetting");
         }
+        #endregion
+
+        #region Payment Status
+        [HttpGet]
+        public ActionResult AddPaymentStatus()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddPaymentStatus(PaymentStatusModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _paymentstatusRepository.Insert(model);
+                return RedirectToAction("PaymentStatusList");
+            }
+            return View(model);
+        }
+        public ActionResult PaymentStatusList()
+        {
+            return View(_paymentstatusRepository.All());
+        }
+        [HttpGet]
+        public ActionResult EditPaymentStatus(int PaymentStatusId)
+        {
+            var PaymentStatus = _paymentstatusRepository.Find(PaymentStatusId);
+            return View(PaymentStatus);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditPaymentStatus(PaymentStatusModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            _paymentstatusRepository.Update(model);
+            return RedirectToAction("PaymentStatusList");
+        }
+
+        public ActionResult DeletePaymentStatus(int PaymentStatusId)
+        {
+            var PaymentStatus = _paymentstatusRepository.Find(PaymentStatusId);
+            if (PaymentStatus != null)
+            {
+                _paymentstatusRepository.Remove(PaymentStatusId);
+                return RedirectToAction("PaymentStatusList");
+            }
+            return RedirectToAction("PaymentStatusList");
+        }
+
         #endregion
 
         #region Invoice
