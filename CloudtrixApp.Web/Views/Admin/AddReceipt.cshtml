@@ -33,29 +33,24 @@
                             </div>
                         </div>
                         <br />
-                        <div class="row">
-                            <div class="form-inline">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="Name"> Customer : </label>
-                                        @Html.DropDownListFor(x => x.CustomerId,
-                                    new SelectList((IEnumerable<SelectListItem>)ViewBag.customer, "Value", "Text"), "Select Customer",
-                                    htmlAttributes: new { @class = "", id = "Customer1" })
+                                        <label for="Customer"> Customer : </label>
+                                        <select id="Customer" class="">
+                                            <option value="">Select Customer</option>
+                                        </select>
                                         @Html.ValidationMessageFor(x => x.CustomerId, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="Name"> Project : </label>
-                                        @Html.DropDownListFor(x => x.ProjectId,
-                                    new SelectList((IEnumerable<SelectListItem>)ViewBag.project, "Value", "Text"), "Select Project",
-                                    htmlAttributes: new { @class = "", id = "Project" })
+                                        <label for="Project"> Project : </label>
+                                        <select id="Project" class="">
+                                            <option value="" >Select Project</option>
+                                        </select>
                                         @Html.ValidationMessageFor(x => x.ProjectId, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-
-                            </div>
-                        </div>
                         <br />
                         <div class="row">
                             <div class="form-inline">

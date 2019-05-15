@@ -630,8 +630,12 @@ namespace CloudtrixApp.Web.Controllers
         public JsonResult GetProjectByCustomer(int customerId = 0)
         {
             if (customerId == 0)
-            return Json(_projectRepository.All(), JsonRequestBehavior.AllowGet);
+            {
+                return Json(null, JsonRequestBehavior.AllowGet);
+            }
             return Json(_projectRepository.All().Where(x => x.CustomerId == customerId), JsonRequestBehavior.AllowGet);
+            
+           
         }
         public JsonResult GetProjectById(int id)
         {

@@ -4,29 +4,37 @@
     $('.mydatepicker').datepicker(
         { format: 'dd/mm/yyyy', autoclose: true });
 
-    //Get Customer
+    ////Get Customer
     $.ajax({
         type: "GET", url: "/Admin/GetCustomer",
         datatype: "Json",
         success: function (data) {
             $.each(data, function (index, value) {
-                $('#Customer1').append('<option value="' + value.Id + '">' + value.Name + '</option>')
+                $('#Customer').append('<option value="' + value.Id + '">' + value.Name + '</option>')
+
             })
         }
     });
 
     // Get Project by Customer
-    $('#Customer1').change(function () {
+    $('#Customer').change(function () {
+        $("#Project").empty().trigger('change')
+        $("#Project").select2('data', null)
+        $("#Project").select2({ width: "100%" });
+
         $.ajax({
+
             type: "GET", url: "/Admin/GetProjectByCustomer",
             datatype: "Json",
-            data: { customerId: $('#Customer1').val() },
+            data: {
+                customerId: $('#Customer').val()
+
+                  },
             success: function (data) {
+              
                 $.each(data, function (index, value) {
                     $('#Project').append('<option value="' + value.Id + '">' + value.ProjectName + '</option>')
                 });
-                //Check if required
-                //LoadProjectDetails($("#Project option:selected").val())
             }
         })
     });
@@ -68,7 +76,7 @@
     function submitValidation() {
         var rReceiptNumber = document.getElementById("#ReceiptNumber").value;
         var rReceiptDate = document.getElementById("#ReceiptDate").value;
-        var rCustomer = document.getElementById("#Customer1").value;
+        var rCustomer = document.getElementById("#Customer").value;
         var rProject = document.getElementById("#Project").value;
         var rAmount = document.getElementById("#Amount").value;
         var rStatus = document.getElementById("#Status").value;
