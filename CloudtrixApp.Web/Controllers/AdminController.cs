@@ -654,6 +654,7 @@ namespace CloudtrixApp.Web.Controllers
         {
             ViewBag.customer = _customerRepository.CustomerForDropdown();
             ViewBag.project = _projectRepository.ProjectForDropdown();
+            ViewBag.paymentstatus = _paymentstatusRepository.PaymentStatusForDropdown();
         }
 
         #endregion

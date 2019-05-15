@@ -22,12 +22,13 @@
                             <div class="form-inline">
                                 <div class="form-group col-md-3">
                                     @Html.LabelFor(x => x.ReceiptNumber)
-                                    @Html.TextBoxFor(x => x.ReceiptNumber, null, new { @class = "form-control", @placeholder = "Enter Receipt Name " ,@id="ReceiptNumber"})
+                                    @Html.TextBoxFor(x => x.ReceiptNumber, null, new { @class = "form-control", @placeholder = "Enter Receipt Name ", @id = "ReceiptNumber", autocomplete = "off" })
                                     @Html.ValidationMessageFor(x => x.ReceiptNumber, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="Date">Receipt Date :</label>
                                     @Html.TextBox("ReceiptDate", null, new { @class = "form-control datepicker ", @style = "width:200px", @placeholder = "Select Receipt Date ", autocomplete = "off" })
+                                    @Html.ValidationMessageFor(x => x.ReceiptNumber, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                         </div>
@@ -60,37 +61,39 @@
                             <div class="form-inline">
                                 <div class="form-group col-md-3">
                                     @Html.LabelFor(x => x.Amount)
-                                    @Html.TextBoxFor(x => x.Amount, null, new { @class = "form-control", @placeholder = "Amount" })
+                                    @Html.TextBoxFor(x => x.Amount, null, new { @class = "form-control", @Value = "0", @type = "number", @placeholder = "Amount", autocomplete = "off" })
                                     @Html.ValidationMessageFor(x => x.Amount, "", new { @class = "text-danger" })
                                 </div>
 
                                 <div class="form-group col-md-3">
                                     <div class="form-group">
-                                        <label for="Status"> Status : </label>
-                                        <select id="Status" class="">
-                                            <option value="Advance">Advance Payment</option>
-                                            <option value="Part">Part Payment</option>
-                                            <option value="Full">Full Payment</option>
-                                            <option value="Balance">Balance Payment</option>
-                                        </select>
-                                        <small id="error_Status" class="form-text error_msg">Select Project from list</small>
-
+                                        <label for="Name"> Payment Status : </label>
+                                        @Html.DropDownListFor(x => x.PaymentStatusId,
+                                    new SelectList((IEnumerable<SelectListItem>)ViewBag.paymentstatus, "Value", "Text"), "Select Payment Status",
+                                    htmlAttributes: new { @class = "", id = "PaymentStatus" })
+                                        @Html.ValidationMessageFor(x => x.PaymentStatusId, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     @Html.LabelFor(x => x.ReceivedBy)
-                                    @Html.TextBoxFor(x => x.ReceivedBy, null, new { @class = "form-control", @style = "width:250px", @placeholder = "Received By" })
+                                    @Html.TextBoxFor(x => x.ReceivedBy, null, new { @class = "form-control", @Value = "", @style = "width:250px", @placeholder = "Received By", autocomplete = "off" })
                                     @Html.ValidationMessageFor(x => x.ReceivedBy, "", new { @class = "text-danger" })
                                 </div>
                             </div>
+                            <br />
+                        </div>
+                        <div class="form-group ">
+                            <label for="Description"> Description: </label>
+                            @Html.TextArea("Description", null, new { @class = "form-control", @placeholder = "Enter Description", autocomplete = "off" })
                         </div>
                         <br />
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary" >
-                                    Submit
-                                </button>
-                                @Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer, @class = "btn btn-default" })
-                            </div>
+
+                        <div class="form-group col-md-3">
+                            <button type="submit" class="btn btn-primary">
+                                Submit
+                            </button>
+                            @Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer, @class = "btn btn-default" })
+                        </div>
 
                     }
                 </div>
@@ -103,7 +106,7 @@
 @section scripts {
     <script src="~/Content/adminFront/assets/plugins/timepicker/bootstrap-datepicker.js"></script>
     @Scripts.Render("~/bundles/Receipt")
-    
+
 }
 
 

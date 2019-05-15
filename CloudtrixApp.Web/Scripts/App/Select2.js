@@ -3,7 +3,7 @@ $("#Customer1").select2({ width: "100%" });
 $("#Customer").select2({ width: "100%" });
 $("#Project").select2({ width: "100%" });
 $("#Employee").select2({ width: "100%" });
-$("#Status").select2({ width: "100%" });
+$("#PaymentStatus").select2({ width: "100%" });
 
 
 

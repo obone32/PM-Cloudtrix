@@ -21,6 +21,7 @@ namespace CloudtrixApp.Core.DataModel
         public DateTime EmployeeDOB { get; set; }
         public DateTime EmployeeDOJ { get; set; }
         public string EmployeeAddress { get; set; }
+        [Range(5000.00, 100000.00, ErrorMessage = "Salary Amount not valid")]
         public decimal EmployeeSalary { get; set; }
         public string Description { get; set; }
     }

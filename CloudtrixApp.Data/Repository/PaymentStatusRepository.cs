@@ -16,7 +16,7 @@ namespace CloudtrixApp.Data.Repository
         {
             return All().ToList().Select(x => new SelectListItem
             {
-                Text = x.PaymentStatus,
+                Text = x.PaymentStatusName,
                 Value = x.Id.ToString()
             });
 

@@ -13,6 +13,6 @@ namespace CloudtrixApp.Core.DataModel
     public class PaymentStatusModel : BaseModel
     {
         [StringLength(30)]
-        public string PaymentStatus { get; set; }
+        public string PaymentStatusName { get; set; }
     }
 }
