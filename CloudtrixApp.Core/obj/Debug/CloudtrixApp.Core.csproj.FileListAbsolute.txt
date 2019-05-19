@@ -20,6 +20,5 @@ E:\APPS\Cloud\Sending_Project\CloudtrixApp.Core\bin\Debug\EntityFramework.xml
 E:\APPS\Cloud\Sending_Project\CloudtrixApp.Core\bin\Debug\EntityFramework.SqlServer.xml
 E:\APPS\Cloud\Sending_Project\CloudtrixApp.Core\bin\Debug\System.Web.Mvc.xml
 E:\APPS\Cloud\Sending_Project\CloudtrixApp.Core\bin\Debug\Microsoft.Web.Infrastructure.xml
-E:\APPS\Cloud\Sending_Project\CloudtrixApp.Core\obj\Debug\CloudtrixApp.Core.csprojResolveAssemblyReference.cache
 E:\APPS\Cloud\Sending_Project\CloudtrixApp.Core\obj\Debug\PharmaApp.Core.dll
 E:\APPS\Cloud\Sending_Project\CloudtrixApp.Core\obj\Debug\PharmaApp.Core.pdb

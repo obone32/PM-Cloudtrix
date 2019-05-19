@@ -506,6 +506,9 @@
     <Content Include="Content\Landing\vendor\simple-line-icons\fonts\Simple-Line-Icons.svg" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
+    <Content Include="DBFiles\altertable_19May2019.sql" />
+    <Content Include="DBFiles\spscript_19May2019.sql" />
+    <Content Include="DBFiles\tablescript_19May2019.sql" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
