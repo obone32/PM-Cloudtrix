@@ -6,19 +6,22 @@ $(document).ready(function () {
     $('.mydatepicker').datepicker(
         { format: 'dd/mm/yyyy',autoclose:true });
     
+
     //Get Customer
     $.ajax({
         type: "GET", url: "/Admin/GetCustomer",
         datatype: "Json",
         success: function (data) {
             $.each(data, function (index, value) {
-                $('#Customer1').append('<option value="' + value.Id + '">' + value.Name + '</option>')
+                $('#Customer').append('<option value="' + value.Id + '">' + value.Name + '</option>')
             })
         }
     });
 
     // Get Project by Customer
-    $('#Customer1').change(function () {
+
+    $('#Customer').change(function () {
+        $('#Project').empty();
         $.ajax({
             type: "GET", url: "/Admin/GetProjectByCustomer",
             datatype: "Json",
@@ -82,7 +85,7 @@ $(document).ready(function () {
             var data = JSON.stringify({
                 InvoiceCode: $("#Code").val(),
                 InvoiceDate: $("#Date").val(),
-                CustomerId: $("#Customer1").val(),
+                CustomerId: $("#Customer").val(),
                 ProjectId: $("#Project").val(),
                 PaymentMethod: $("#Payment").val(),
                 Total: parseFloat($("#SubTotal").text()),
@@ -128,7 +131,7 @@ $(document).ready(function () {
         var payment = document.getElementById("Payment").value;
         var code = document.getElementById("Code").value;
         var idate = document.getElementById("Date").value;
-        var customer = document.getElementById("Customer1").value;
+        var customer = document.getElementById("Customer").value;
         var project = document.getElementById("Project").value;
         var total = parseFloat($("#SubTotal").text());
         var gtotal = parseFloat($("#GrandTotal").text());

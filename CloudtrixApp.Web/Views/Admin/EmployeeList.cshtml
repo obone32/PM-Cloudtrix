@@ -5,8 +5,11 @@
 
 <div class="wraper container-fluid">
     <div class="page-title">
-        <a href="@Url.Action("AddEmployee", "Admin")" class="btn btn-primary pull-left">Add Employee </a>
-        <br />
+        @if (ViewBag.IsAdd != null && ViewBag.IsAdd == true)
+        {
+            <a href="@Url.Action("AddEmployee", "Admin")" class="btn btn-primary pull-left">Add Employee </a>
+            <br />
+        }
     </div>
     <div class="row">
         <div class="col-lg-12">
@@ -44,15 +47,18 @@
 
 
                                             <td>
-                                                <a href="@Url.Action("EditEmployee", "Admin", new {EmployeeId = item.Id})" class="btn btn-icon btn-warning btn-xs m-b-5">
-                                                    <i class="fa fa-edit"></i>
-                                                </a>
-                                                <a href="@Url.Action("DeleteEmployee", "Admin", new {EmployeeId = item.Id})" onclick="return confirm('Are you sure you want to Remove this Employee?')" class="btn btn-icon btn-danger btn-xs m-b-5">
-                                                    <i class="fa fa-remove"></i>
-                                                </a>
-                                                @*<a onclick="alert('Some delete operation has been restricted in demo version')" class="btn btn-icon btn-danger btn-xs m-b-5">
-                                                     <i class="fa fa-remove"></i>
-                                                    </a>*@
+                                                @if (ViewBag.IsAdd != null && ViewBag.IsAdd == true)
+                                                {
+                                                    <a href="@Url.Action("EditEmployee", "Admin", new { EmployeeId = item.Id })" class="btn btn-icon btn-warning btn-xs m-b-5">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                    <a href="@Url.Action("DeleteEmployee", "Admin", new { EmployeeId = item.Id })" onclick="return confirm('Are you sure you want to Remove this Employee?')" class="btn btn-icon btn-danger btn-xs m-b-5">
+                                                        <i class="fa fa-remove"></i>
+                                                    </a>
+                                                    @*<a onclick="alert('Some delete operation has been restricted in demo version')" class="btn btn-icon btn-danger btn-xs m-b-5">
+                                                         <i class="fa fa-remove"></i>
+                                                        </a>*@
+                                                }
                                             </td>
 
                                         </tr>
@@ -67,4 +73,3 @@
         </div>
     </div>
 </div>
-

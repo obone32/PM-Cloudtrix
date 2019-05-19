@@ -9,16 +9,16 @@
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <!--Icon fonts css-->
-    <link href="~/Content/adminFront/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet"/>
+    <link href="~/Content/adminFront/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="~/Content/adminFront/assets/plugins/ionicon/css/ionicons.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css" rel="stylesheet" />
 
-   
+
     @Styles.Render("~/bundles/thirdpartcss")
     @Styles.Render("~/bundles/thirdpartcss2")
-    
 
-    
+
+
     <style type="text/css">
         .wraper {
             min-height: 700px;
@@ -105,10 +105,10 @@
                 </li>*@
             <!-- End Notification -->
             <!-- User Menu Dropdown -->
-            @if (User.Identity.IsAuthenticated)
+            @if (Session["EmployeeEmail"] != null)
             {
                 <li class="dropdown text-center">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"> <img alt="" src="~/Content/adminFront/assets/img/.png" class="img-circle profile-img thumb-sm"> <span class="username">@User.Identity.Name </span> <span class="caret"></span> </a>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"> <img alt="" src="~/Content/adminFront/assets/img/.png" class="img-circle profile-img thumb-sm"> <span class="username">@Convert.ToString(Session["EmployeeEmail"]) </span> <span class="caret"></span> </a>
                     <ul class="dropdown-menu extended pro-menu fadeInUp animated" tabindex="5003" style="overflow: hidden; outline: none;">
                         <li>
                             <a href="@Url.Action("StoreSetting", "Admin")"><i class="fa fa-briefcase"></i>Settings</a>
@@ -126,19 +126,20 @@
         </ul>
         <!-- End Right Navbar -->
     </header>
-    @Html.Partial("_Navigation")
+    @Html.Action("_Navigation","Home")
 
 
     <!-- End Aside -->
 
 
     <section class="content">
+       
         @RenderBody()
 
         <footer class="footer">
 
             <div class="pull-right hidden-xs">
-                
+
             </div>
             <!-- Default to the left -->
             <strong>Copyright &copy; @DateTime.Now.Year <a href="https://www.cloudtrix.in">CloudTRIX </a>.</strong> All rights reserved.

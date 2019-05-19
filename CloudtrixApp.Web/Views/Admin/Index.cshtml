@@ -14,11 +14,12 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="tile-stats white-bg">
-                        <div class="status">
-                            <h3 class="m-t-0 text-info"><i class="fa fa-list"></i> +</h3>
+                        @*<div class="status">
+                            <h3 class="m-t-0 text-info"><i class="fa fa-list"></i> @Model.Shelfs+</h3>
                             <p>
+                                Total Shelfs
                             </p>
-                        </div>
+                        </div>*@
                         <div class="chart-inline">
                             <span id="dashboard1"></span>
                         </div>
@@ -26,24 +27,24 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="tile-stats white-bg">
-                        <div class="status">
-                            <h3 class="m-t-0 text-danger"><i class="fa fa-medkit"></i> +</h3>
+                        @*<div class="status">
+                            <h3 class="m-t-0 text-danger"><i class="fa fa-medkit"></i> @Model.Medicines</h3>
                             <p>
-                                Total 
+                                Total Medicines
                             </p>
-                        </div>
+                        </div>*@
                         <span id="dashboard2"></span>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="tile-stats white-bg">
                       
-                            <div class="status">
-                                <h3 class="m-t-0 text-success"><i class="fa fa-shopping-cart"></i> *</h3>
+                            @*<div class="status">
+                                <h3 class="m-t-0 text-success"><i class="fa fa-shopping-cart"></i> @Model.Purchases</h3>
                                 <p>
-                                    No
+                                    No of Purchase
                                 </p>
-                            </div>
+                            </div>*@
                        
                         <div class="col-sm-4 m-t-20">
                             <span id="dashboard3"></span>
@@ -52,20 +53,20 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="tile-stats white-bg">
-                            <div class="status">
-                                <h3 class="m-t-0 text-success"><i class="fa fa-money"></i> ***</h3>
+                            @*<div class="status">
+                                <h3 class="m-t-0 text-success"><i class="fa fa-money"></i> @Model.TotalPurchases</h3>
                                 <p>
-                                     Total  Amount
+                                     Total Purchase Amount
                                 </p>
-                            </div>
-                        <div class="col-sm-8">
+                            </div>*@
+                        @*<div class="col-sm-8">
                             <div class="status">
                                 <h3 class="m-t-15 text-warning"><i class="fa fa-life-ring"></i> 35</h3>
                                 <p>
-                                    New 
+                                    New helps
                                 </p>
                             </div>
-                        </div>
+                        </div>*@
                         <div class="col-sm-4 m-t-20">
                             <span id="dashboard4"></span>
                         </div>
@@ -77,23 +78,23 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="tile-stats white-bg">
-                        <div class="status">
-                            <h3 class="m-t-0 text-danger"><i class="fa fa-area-chart"></i>//*//</h3>
+                        @*<div class="status">
+                            <h3 class="m-t-0 text-danger"><i class="fa fa-area-chart"></i> @Model.Stocks</h3>
                             <p>
-                               Total  Quantity
+                               Total Stocks Quantity
                             </p>
-                        </div>
+                        </div>*@
                         <span id="dashboard2"></span>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="tile-stats white-bg">
-                        <div class="status">
-                            <h3 class="m-t-0 text-info"><i class="fa fa-users"></i> +</h3>
+                        @*<div class="status">
+                            <h3 class="m-t-0 text-info"><i class="fa fa-users"></i> @Model.Suppliers+</h3>
                             <p>
-                                Total *
+                                Total Suppliers
                             </p>
-                        </div>
+                        </div>*@
                         <div class="chart-inline">
                             <span id="dashboard1"></span>
                         </div>
@@ -103,12 +104,12 @@
                 <div class="col-sm-6">
                     <div class="tile-stats white-bg">
 
-                        <div class="status">
-                            <h3 class="m-t-0 text-success"><i class="fa fa-shopping-cart"></i> Projects</h3>
+                        @*<div class="status">
+                            <h3 class="m-t-0 text-success"><i class="fa fa-shopping-cart"></i> @Model.sales</h3>
                             <p>
-                                No of Projects
+                                No of Sales
                             </p>
-                        </div>
+                        </div>*@
 
                         <div class="col-sm-4 m-t-20">
                             <span id="dashboard3"></span>
@@ -117,20 +118,20 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="tile-stats white-bg">
-                        <div class="status">
-                            <h3 class="m-t-0 text-success"><i class="fa fa-money"></i> -*-</h3>
+                        @*<div class="status">
+                            <h3 class="m-t-0 text-success"><i class="fa fa-money"></i> @Model.TotalSales</h3>
                             <p>
-                               
+                                Total Sales Amount
                             </p>
-                        </div>
-                        <div class="col-sm-8">
+                        </div>*@
+                        @*<div class="col-sm-8">
                     <div class="status">
                         <h3 class="m-t-15 text-warning"><i class="fa fa-life-ring"></i> 35</h3>
                         <p>
-                            
+                            New helps
                         </p>
                     </div>
-                </div>
+                </div>*@
                         <div class="col-sm-4 m-t-20">
                             <span id="dashboard4"></span>
                         </div>
@@ -143,7 +144,7 @@
         <div class="col-md-12">
             <div class="portlet">
                 <div class="portlet-heading">
-                    <h3 class="portlet-title text-dark text-uppercase"> Project List </h3>
+                    <h3 class="portlet-title text-dark text-uppercase"> Low Stock Medicine List </h3>
                     <div class="portlet-widgets">
                         <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
                         <span class="divider"></span>
@@ -159,24 +160,49 @@
                             <thead>
                                 <tr>
                                     <th>
-                                       Name
+                                      Medicine Name
                                     </th>
                                     <th>
-                                       No
+                                       BatchNo
                                     </th>
                                     <th>
                                        Total Quantity
                                     </th>
                                   
                                     <th>
+                                       Selling price
                                     </th>
                                     <th>
+                                        Buying Price
                                     </th>
 
                                  
                                 </tr>
                             </thead>
-                          
+                            @*@foreach (var item in Model.LowStocks)
+                            {
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MedicineModel.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MedicineModel.BatchNo)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TotalQuantity)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MedicineModel.SellingPrice)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MedicineModel.BuyingPrice)
+                                        </td>
+
+                                    
+                                    </tr>
+                                </tbody>
+                            }*@
                         </table>
 
                     </div>

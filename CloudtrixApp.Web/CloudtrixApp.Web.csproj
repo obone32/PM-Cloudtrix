@@ -110,6 +110,10 @@
       <HintPath>..\packages\Ninject.MVC5.3.3.0\lib\net45\Ninject.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PharmaApp.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CloudtrixApp.Core\bin\Debug\PharmaApp.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -187,10 +191,16 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAL\ClsAppDatabase.cs" />
+    <Compile Include="DAL\ClsCloudtrix.cs" />
+    <Compile Include="DAL\ClsEntityAppDatabase.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CloudtrixModel.cs" />
+    <Compile Include="Models\ConString.cs" />
     <Compile Include="Models\MvcSelect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\InvoiceReport.cs" />
@@ -510,7 +520,6 @@
     <Content Include="Scripts\App\jquery.timepicker.min.css" />
     <Content Include="Scripts\App\jquery.timepicker.min.js" />
     <Content Include="Scripts\App\NewJS.js" />
-    <Content Include="Scripts\App\Receipt.js" />
     <Content Include="Scripts\App\Select2.js" />
     <Content Include="Content\adminFront\assets\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\adminFront\assets\fonts\glyphicons-halflings-regular.ttf" />
@@ -644,13 +653,15 @@
     <Content Include="Views\Admin\EditInvoice.cshtml" />
     <Content Include="Views\Admin\TimeSheetList.cshtml" />
     <Content Include="Views\Admin\AddTimeSheet.cshtml" />
-    <Content Include="Views\Admin\ReceiptList.cshtml" />
-    <Content Include="Views\Admin\AddReceipt.cshtml" />
-    <Content Include="Views\Admin\AddPaymentStatus.cshtml" />
+    <Content Include="Views\Admin\RoleIndex.cshtml" />
+    <Content Include="Views\Admin\AddRole.cshtml" />
+    <Content Include="Views\Home\_Navigation.cshtml" />
+    <Content Include="Views\Admin\AccessDenied.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

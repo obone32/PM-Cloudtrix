@@ -10,31 +10,30 @@ using System.Data;
 using System.Web.Mvc;
 using CloudtrixApp.Core.ViewModel;
 using CloudtrixApp.Web.Reports;
+using PharmaApp.Web.Models;
+using PharmaApp.Web.DAL;
 
-namespace CloudtrixApp.Web.Controllers
+namespace PharmaApp.Web.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
+    [BaseController]
     public class AdminController : Controller
     {
         private readonly IArchitectRepository _architectRepository;
         private readonly IEmployeeRepository _employeeRepository;
         private readonly ITimeSheetRepository _timesheetRepository;
         private readonly ICustomerRepository _customerRepository;
-        private readonly IReceiptRepository _receiptRepository;
-        private readonly IPaymentStatusRepository _paymentstatusRepository;
         private readonly IProjectRepository _projectRepository;
         private readonly IStoreSettingRepository _storeRepository;
         private readonly IInvoiceItemRepository _InvoiceItemRepository;
         private readonly IInvoiceRepository _InvoiceRepository;
-
+        ClsCloudtrix _clsCloud = new ClsCloudtrix();
 
 
         public AdminController(IArchitectRepository architectRepository,
                                IEmployeeRepository employeeRepository,
                                ITimeSheetRepository timesheetRepository,
                                ICustomerRepository customerRepository,
-                               IReceiptRepository receiptRepository,
-                               IPaymentStatusRepository paymentstatusRepository,
                                IProjectRepository projectRepository,
                                IStoreSettingRepository storeRepository,
                                IInvoiceItemRepository InvoiceItemRepository,
@@ -44,16 +43,16 @@ namespace CloudtrixApp.Web.Controllers
             _employeeRepository = employeeRepository;
             _timesheetRepository = timesheetRepository;
             _customerRepository = customerRepository;
-            _receiptRepository = receiptRepository;
-            _paymentstatusRepository = paymentstatusRepository;
             _projectRepository = projectRepository;
             _storeRepository = storeRepository;
             _InvoiceRepository = InvoiceRepository;
             _InvoiceItemRepository = InvoiceItemRepository;
         }
         // GET: Admin
+
         public ActionResult Index()
         {
+            menuRights(1);
             int totalInvoice = 0;
             int totalproject = 0;
             int stocks = 0;
@@ -67,7 +66,7 @@ namespace CloudtrixApp.Web.Controllers
             }
             var dashboard = new DashboardViewModel
             {
-                
+
             };
             return View(dashboard);
         }
@@ -91,6 +90,7 @@ namespace CloudtrixApp.Web.Controllers
         }
         public ActionResult ArchitectList()
         {
+            menuRights(4);
             return View(_architectRepository.All());
         }
         [HttpGet]
@@ -126,6 +126,7 @@ namespace CloudtrixApp.Web.Controllers
         [HttpGet]
         public ActionResult AddEmployee()
         {
+            FillRoleCombo();
             return View();
         }
         [HttpPost]
@@ -146,6 +147,7 @@ namespace CloudtrixApp.Web.Controllers
         [HttpGet]
         public ActionResult EditEmployee(int EmployeeId)
         {
+            FillRoleCombo();
             var Employee = _employeeRepository.Find(EmployeeId);
             return View(Employee);
         }
@@ -170,12 +172,31 @@ namespace CloudtrixApp.Web.Controllers
             }
             return RedirectToAction("EmployeeList");
         }
+
+        public void FillRoleCombo()
+        {
+            try
+            {
+                CloudtrixModel _objModel = new CloudtrixModel();
+                var DDLRoleIDData = _clsCloud.RoleMaster_ListAll(_objModel);
+                if (DDLRoleIDData != null && DDLRoleIDData.Count > 0)
+                    ViewBag.DDLRoleID = DDLRoleIDData;
+                else
+                    ViewBag.DDLRoleID = new List<SelectListItem> { };
+            }
+            catch (Exception ex)
+            {
+                ViewBag.DDLRoleID = new List<SelectListItem> { };
+                throw ex;
+            }
+        }
         #endregion
 
         #region customer
         [HttpGet]
         public ActionResult AddCustomer()
         {
+            FillStateCombo();
             return View();
         }
         [HttpPost]
@@ -191,6 +212,7 @@ namespace CloudtrixApp.Web.Controllers
         }
         public ActionResult CustomerList()
         {
+            menuRights(2);
             return View(_customerRepository.All());
         }
         [HttpGet]
@@ -222,60 +244,6 @@ namespace CloudtrixApp.Web.Controllers
         }
         #endregion
 
-        #region Receipt
-        [HttpGet]
-        public ActionResult AddReceipt()
-        {
-            ReceiptDropdown();
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddReceipt(ReceiptModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                _receiptRepository.Insert(model);
-                return RedirectToAction("ReceiptList");
-            }
-            return View(model);
-        }
-        public ActionResult ReceiptList()
-        {
-            return View(_receiptRepository.All(x => x.CustomerModel));
-        }
-        [HttpGet]
-        public ActionResult EditReceipt(int ReceiptId)
-        {
-            var Receipt = _receiptRepository.Find(ReceiptId);
-            ReceiptDropdown();
-            return View(Receipt);
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult EditReceipt(ReceiptModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                ReceiptDropdown();
-                return View(model);
-            }
-            _receiptRepository.Update(model);
-            return RedirectToAction("ReceiptList");
-        }
-
-        public ActionResult DeleteReceipt(int ReceiptId)
-        {
-            var Receipt = _receiptRepository.Find(ReceiptId);
-            if (Receipt != null)
-            {
-                _receiptRepository.Remove(ReceiptId);
-                return RedirectToAction("ReceiptList");
-            }
-            return RedirectToAction("ReceiptList");
-        }
-        #endregion
-
         #region project
         [HttpGet]
         public ActionResult AddProject()
@@ -291,14 +259,14 @@ namespace CloudtrixApp.Web.Controllers
             {
                 ProjectDropdown();
                 _projectRepository.Insert(model);
-
                 return RedirectToAction("ProjectList");
             }
             return View(model);
         }
         public ActionResult ProjectList()
         {
-             return View(_projectRepository.All(x => x.ArchitectModel));
+            menuRights(3);
+            return View(_projectRepository.All(x => x.ArchitectModel));
         }
         [HttpGet]
         public ActionResult EditProject(int projectId)
@@ -354,6 +322,7 @@ namespace CloudtrixApp.Web.Controllers
         }
         public ActionResult TimeSheetList()
         {
+            menuRights(7);
             return View(_timesheetRepository.All(x => x.EmployeeModel));
         }
         [HttpGet]
@@ -393,6 +362,7 @@ namespace CloudtrixApp.Web.Controllers
         [HttpGet]
         public ActionResult StoreSetting()
         {
+            menuRights(8);
             var settings = _storeRepository.All().FirstOrDefault();
             if (settings != null)
                 return View(settings);
@@ -438,57 +408,6 @@ namespace CloudtrixApp.Web.Controllers
         }
         #endregion
 
-        #region Payment Status
-        [HttpGet]
-        public ActionResult AddPaymentStatus()
-        {
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddPaymentStatus(PaymentStatusModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                _paymentstatusRepository.Insert(model);
-                return RedirectToAction("PaymentStatusList");
-            }
-            return View(model);
-        }
-        public ActionResult PaymentStatusList()
-        {
-            return View(_paymentstatusRepository.All());
-        }
-        [HttpGet]
-        public ActionResult EditPaymentStatus(int PaymentStatusId)
-        {
-            var PaymentStatus = _paymentstatusRepository.Find(PaymentStatusId);
-            return View(PaymentStatus);
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult EditPaymentStatus(PaymentStatusModel model)
-        {
-            if (!ModelState.IsValid)
-                return View(model);
-
-            _paymentstatusRepository.Update(model);
-            return RedirectToAction("PaymentStatusList");
-        }
-
-        public ActionResult DeletePaymentStatus(int PaymentStatusId)
-        {
-            var PaymentStatus = _paymentstatusRepository.Find(PaymentStatusId);
-            if (PaymentStatus != null)
-            {
-                _paymentstatusRepository.Remove(PaymentStatusId);
-                return RedirectToAction("PaymentStatusList");
-            }
-            return RedirectToAction("PaymentStatusList");
-        }
-
-        #endregion
-
         #region Invoice
         [HttpGet]
         public ActionResult Invoice()
@@ -509,6 +428,7 @@ namespace CloudtrixApp.Web.Controllers
 
         public ActionResult InvoiceList()
         {
+            menuRights(6);
             return View(_InvoiceRepository.All(x => x.ProjectModel));
         }
 
@@ -630,12 +550,8 @@ namespace CloudtrixApp.Web.Controllers
         public JsonResult GetProjectByCustomer(int customerId = 0)
         {
             if (customerId == 0)
-            {
-                return Json(null, JsonRequestBehavior.AllowGet);
-            }
+                return Json(_projectRepository.All(), JsonRequestBehavior.AllowGet);
             return Json(_projectRepository.All().Where(x => x.CustomerId == customerId), JsonRequestBehavior.AllowGet);
-            
-           
         }
         public JsonResult GetProjectById(int id)
         {
@@ -653,16 +569,6 @@ namespace CloudtrixApp.Web.Controllers
         }
         #endregion
 
-        #region Add Receipt DropDown
-        private void ReceiptDropdown()
-        {
-            ViewBag.customer = _customerRepository.CustomerForDropdown();
-            ViewBag.project = _projectRepository.ProjectForDropdown();
-            ViewBag.paymentstatus = _paymentstatusRepository.PaymentStatusForDropdown();
-        }
-
-        #endregion
-
         #region Add Invoice DropDown
         private void InvoiceDropDown()
         {
@@ -672,8 +578,8 @@ namespace CloudtrixApp.Web.Controllers
         #endregion
 
         #region Add TimeSheet DropDown
-        
-            private void TimeSheetDropdown()
+
+        private void TimeSheetDropdown()
         {
             ViewBag.project = _projectRepository.ProjectForDropdown();
             ViewBag.employee = _employeeRepository.EmployeeForDropdown();
@@ -681,5 +587,150 @@ namespace CloudtrixApp.Web.Controllers
 
         #endregion
 
+        #region Role
+
+        public ActionResult RoleIndex()
+        {
+            menuRights(9);
+            CloudtrixModel _objModel = new CloudtrixModel();
+            var Data = _clsCloud.RoleMaster_ListAll(_objModel).ToList();
+            return View(Data);
+        }
+
+
+        public ActionResult AddRole(int RoleID = 0)
+        {
+            CloudtrixModel _objModel = new CloudtrixModel();
+            if (RoleID > 0)
+            {
+                _objModel.RoleID = RoleID;
+                _objModel = _clsCloud.RoleMaster_ListAll(_objModel).FirstOrDefault();
+            }
+            _objModel.RoleID = RoleID;
+            ViewBag.RightsList = _clsCloud.MenuRights_ListAll(_objModel).ToList();
+            return View(_objModel);
+        }
+
+        [HttpPost]
+        public ActionResult AddRole(CloudtrixModel _objModel, FormCollection frm)
+        {
+            try
+            {
+                _clsCloud.Conn = ClsAppDatabase.GetCon();
+                if (_clsCloud.Conn.State == ConnectionState.Closed) { _clsCloud.Conn.Open(); } else { _clsCloud.Conn.Close(); _clsCloud.Conn.Open(); }
+                _clsCloud.Tras = _clsCloud.Conn.BeginTransaction();
+
+                var Data = _clsCloud.MenuRights_ListAll(_objModel).ToList();
+
+                if (_objModel.RoleID > 0)
+                {
+                    _clsCloud.RoleMaster_Update(_objModel);
+                }
+                else
+                {
+                    _objModel.RoleID = _clsCloud.RoleMaster_Add(_objModel);
+                }
+
+
+                for (int i = 0; i < Data.Count; i++)
+                {
+                    int intMenuID = Data[i].MenuID;
+
+                    for (int j = 0; j < frm.Count; j++)
+                    {
+                        string GetAllkeysStringValue = frm.AllKeys[j];
+                        if (GetAllkeysStringValue.Equals("menu_" + intMenuID + ""))
+                        {
+                            _objModel.MenuID = Convert.ToInt32(frm["menu_" + intMenuID + ""]);
+                            _objModel.IsAdd = frm["checkboxAdd_" + intMenuID + ""] != null ? true : false;
+                            _objModel.IsView = frm["checkboxView_" + intMenuID + ""] != null ? true : false;
+                            _objModel.MenuRightsID = Convert.ToInt32(frm["MenuRights_" + intMenuID + ""]);
+                            if (_objModel.MenuRightsID > 0)
+                            {
+                                _clsCloud.MenuRights_Update(_objModel);
+                            }
+                            else
+                            {
+                                _clsCloud.MenuRights_Add(_objModel);
+                            }
+                        }
+                    }
+                }
+
+                _clsCloud.Tras.Commit();
+                _clsCloud.Conn.Close();
+                return RedirectToAction("RoleIndex");
+            }
+            catch (Exception ex)
+            {
+                _clsCloud.Tras.Rollback();
+                _clsCloud.Conn.Close();
+                if (ex.InnerException == null) { TempData["FFMsg"] = ex.Message; } else { TempData["FFMsg"] = ex.InnerException.Message; }
+            }
+
+            return View(_objModel);
+        }
+
+        #endregion
+
+        #region Other
+
+        public void FillStateCombo()
+        {
+            try
+            {
+                CloudtrixModel _objModel = new CloudtrixModel();
+                var DDLStateData = _clsCloud.StateMaster_ListAll(_objModel);
+                if (DDLStateData != null && DDLStateData.Count > 0)
+                    ViewBag.DDLStateID = DDLStateData;
+                else
+                    ViewBag.DDLStateID = new List<SelectListItem> { };
+            }
+            catch (Exception ex)
+            {
+                ViewBag.DDLStateID = new List<SelectListItem> { };
+                throw ex;
+            }
+        }
+
+        public void menuRights(int menuID = 0)
+        {
+            CloudtrixModel _objModel = new CloudtrixModel();
+            _objModel.MenuID = menuID;
+            _objModel.RoleIDs = Convert.ToString(Session["RoleID"]);
+            var Rights = _clsCloud.MenuRoleRights_ListAll(_objModel).FirstOrDefault();
+            if(Rights == null)
+            {
+                //filterContext.Result = new RedirectResult(string.Format("/Admin/AccessDenied"));
+                //Response.RedirectToRoute("/Admin/AccessDenied");
+                Response.Redirect(Url.Action("AccessDenied", "Admin"));
+            }
+            else
+            {
+                ViewBag.IsAdd = Rights.IsAdd;
+                ViewBag.IsView = Rights.IsView;
+            }
+        }
+        
+        public ActionResult AccessDenied()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult GetStateData(string stateName)
+        {
+            CloudtrixModel _objModel = new CloudtrixModel();
+            _objModel.StateName = stateName;
+            var result = _clsCloud.StateMaster_ListAll(_objModel).FirstOrDefault();
+            if (result == null)
+                return null;
+            var jsonResult = Json(result, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+
+        }
+        #endregion
     }
 }

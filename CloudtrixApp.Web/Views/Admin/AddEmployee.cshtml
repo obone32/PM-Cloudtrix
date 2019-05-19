@@ -20,53 +20,65 @@
                     {
                         @Html.AntiForgeryToken()
                         <div class="form-group">
-                            <label for="EmployeeName">Name of Employee :</label>
+                            @Html.LabelFor(x => x.EmployeeName)
                             @Html.TextBoxFor(x => x.EmployeeName, null, new { @class = "form-control", @placeholder = "Enter Employee Name " })
                             @Html.ValidationMessageFor(x => x.EmployeeName, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
-                            <label for="Address">Address :</label>
-                            @Html.TextBoxFor(x => x.EmployeeAddress, null, new { @class = "form-control", @placeholder = "Please Enter Address" })
-                            @Html.ValidationMessageFor(x => x.EmployeeAddress, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            <label for="Email">Email :</label>
-                            @Html.TextBoxFor(x => x.EmployeeEmail, null, new { @class = "form-control", @style = "width:300px", @placeholder = "Please Enter Email" })
+                            @Html.LabelFor(x => x.EmployeeEmail)
+                            @Html.TextBoxFor(x => x.EmployeeEmail, null, new { @class = "form-control", @placeholder = "Please Enter Email" })
                             @Html.ValidationMessageFor(x => x.EmployeeEmail, "", new { @class = "text-danger" })
                         </div>
-
-                        <div class="form-group col-md-3">
-                            <label for="Phone">Phone :</label>
-                            @Html.TextBoxFor(x => x.EmployeePhone, null, new { @class = "form-control", @style = "width:150px", @placeholder = "Enter Phone" })
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Password)
+                            @Html.PasswordFor(x => x.Password, new { @class = "form-control", @placeholder = "Please Enter Password" })
+                            @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.EmployeePhone)
+                            @Html.TextBoxFor(x => x.EmployeePhone, null, new { @class = "form-control", @placeholder = "Please Enter Phone" })
                             @Html.ValidationMessageFor(x => x.EmployeePhone, "", new { @class = "text-danger" })
                         </div>
-                        <div class="form-group col-md-3">
-                            <label for="Gender">Gender :</label>
-                            @Html.TextBoxFor(x => x.EmployeeGender, null, new { @class = "form-control ", @style = "width:120px", @placeholder = "Enter Gender" })
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.EmployeeGender)
+                            @Html.DropDownList("EmployeeGender", new List<SelectListItem> { new SelectListItem { Text = "--Select--", Value = "" }, new SelectListItem { Text = "Male", Value = "Male" }, new SelectListItem { Text = "Female", Value = "Female" } }, new { @class = "form-control" })
                             @Html.ValidationMessageFor(x => x.EmployeeGender, "", new { @class = "text-danger" })
                         </div>
 
-                        <div class="form-group col-md-3">
-                            <label for="Date">Date of Birth :</label>
-                            @Html.TextBoxFor(x => x.EmployeeDOB, null, new { @class = "form-control datepicker", @style = "width:150px", @placeholder = " Enter DOB" })
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.EmployeeDOB)
+                            @Html.TextBoxFor(x => x.EmployeeDOB, null, new { @class = "form-control datepicker", @placeholder = "Please Enter Date Of Birth", autocomplete = "off" })
                             @Html.ValidationMessageFor(x => x.EmployeeDOB, "", new { @class = "text-danger" })
                         </div>
-                        <div class="form-group col-md-3">
-                            <label for="Date">Date of Joining :</label>
-                            @Html.TextBoxFor(x => x.EmployeeDOJ, null, new { @class = "form-control datepicker", @style = "width:150px", @placeholder = "Enter DOJ" })
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.EmployeeDOJ)
+                            @Html.TextBoxFor(x => x.EmployeeDOJ, null, new { @class = "form-control datepicker", @placeholder = "Please Enter Date Of Joining", autocomplete = "off" })
                             @Html.ValidationMessageFor(x => x.EmployeeDOJ, "", new { @class = "text-danger" })
                         </div>
+
                         <div class="form-group">
-                            <label for="Salary">Salary of Employee :</label>
-                            @Html.TextBoxFor(x => x.EmployeeSalary, null, new { @class = "form-control", @style = "width:150px", @placeholder = "Please Enter Salary" })
-                            @Html.ValidationMessageFor(x => x.EmployeeSalary, "", new { @class = "text-danger" })
+                            @Html.LabelFor(x => x.EmployeeAddress)
+                            @Html.TextBoxFor(x => x.EmployeeAddress, null, new { @class = "form-control", @placeholder = "Please Enter Address" })
+                            @Html.ValidationMessageFor(x => x.EmployeeAddress, "", new { @class = "text-danger" })
                         </div>
 
-                                <button type="submit" class="btn btn-primary">
-                                    Submit
-                                </button>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.RoleID)
+                            @Html.DropDownList("RoleID", new SelectList(ViewBag.DDLRoleID, "RoleID", "RoleName"), "--Select--", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.RoleID, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.IsActive)
+                            @Html.CheckBoxFor(m => m.IsActive)
 
-                                @Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer, @class = "btn btn-default" })
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Submit
+                        </button>
+
+                        @Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer, @class = "btn btn-default" })
                     }
                 </div>
             </div>
@@ -74,13 +86,21 @@
 
     </div>
 </div>
-
 @section scripts {
     <script src="~/Content/adminFront/assets/plugins/timepicker/bootstrap-datepicker.js"></script>
     @Scripts.Render("~/bundles/App3")
 
     <script type="text/javascript">
+        $('#EmployeeDOJ').datepicker({
+            format: 'mm/dd/yyyy',
+            startDate: '-10y'
+        });
 
+        $('#EmployeeDOB').datepicker({
+            format: 'mm/dd/yyyy',
+            startDate: new Date('1900-1-5'),
+            endDate: new Date('2009-12-31')
+        });
     </script>
 }
 
