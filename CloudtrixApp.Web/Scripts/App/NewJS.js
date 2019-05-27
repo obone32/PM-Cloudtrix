@@ -4,8 +4,8 @@ $(document).ready(function () {
 
     //datetimepicker
     $('.mydatepicker').datepicker(
-        { format: 'dd/mm/yyyy',autoclose:true });
-    
+        { format: 'dd/mm/yyyy', autoclose: true });
+
 
     //Get Customer
     $.ajax({
@@ -35,30 +35,53 @@ $(document).ready(function () {
             }
         })
     });
-  
+
     //Add to List
     $("#addToList").click(function (e) {
         e.preventDefault();
-        
+        debugger;
         if (add_validation()) {
             var productId = $("#Description").val(),
                 description = $("#Description").val(),
                 price = $("#Price").val(),
                 quantity = $("#Quantity").val(),
+
+                   IGST = $("#IGST").val(),
+                IGSTAmt = $("#IGSTAmt").val(),
+                   CGST = $("#CGST").val(),
+                CGSTAmt = $("#CGSTAmt").val(),
+                SGST = $("#SGST").val(),
+                SGSTAmt = $("#SGSTAmt").val(),
+                   TotAmt = $("#TotAmt").val(),
                 detailsTableBody = $("#detailsTable tbody");
 
             var productItem = '<tr> <td> ' + '0' +
                 ' </td> + <td>' + description +
                 '</td><td>' + price +
                 '</td><td>' + quantity +
-                '</td><td class="amount">' + (parseFloat(price) * parseInt(quantity)).toFixed(2) +
+                '</td><td class="">' + (parseFloat(price) * parseInt(quantity)).toFixed(2) +
+                  '</td><td>' + IGST +
+                '</td><td>' + IGSTAmt +
+                  '</td><td>' + CGST +
+                '</td><td>' + CGSTAmt +
+                  '</td><td>' + SGST +
+                '</td><td>' + SGSTAmt +
+                  '</td><td class="amount">' + TotAmt +
                 '</td><td><a data-itemId="0" href="#" class="deleteItem"><i class="fa fa-trash"></i></a></td></tr>';
             detailsTableBody.append(productItem);
             $('#Description').val('');
             $('#Price').val('');
             $('#Quantity').val('');
+           
             calculateSum();
             $("#Quantity").val('');
+            $("#IGST").val(''),
+           $("#IGSTAmt").val(''),
+           $("#CGST").val(''),
+           $("#CGSTAmt").val(''),
+           $("#SGST").val(''),
+           $("#SGSTAmt").val(''),
+           $("#TotAmt").val(''),
             blankme("SubTotal");
             blankme("GrandTotal")
         }
@@ -79,6 +102,15 @@ $(document).ready(function () {
                         Price: parseFloat($(this).find('td:eq(2)').html()),
                         Quantity: parseInt($(this).find('td:eq(3)').html()),
                         Amount: parseFloat($(this).find('td:eq(4)').html()),
+
+                        IGST: parseFloat($(this).find('td:eq(5)').html()),
+                        IGSTAmt: parseFloat($(this).find('td:eq(6)').html()),
+                        CGST: parseFloat($(this).find('td:eq(7)').html()),
+                        CGSTAmt: parseFloat($(this).find('td:eq(8)').html()),
+                        SGST: parseFloat($(this).find('td:eq(9)').html()),
+                        SGSTAmt: parseFloat($(this).find('td:eq(10)').html()),
+                        TotAmt: parseFloat($(this).find('td:eq(11)').html()),
+
                     })
                 });
             alert("testing OK1");
@@ -136,8 +168,7 @@ $(document).ready(function () {
         var total = parseFloat($("#SubTotal").text());
         var gtotal = parseFloat($("#GrandTotal").text());
 
-        if (iStaus == "" || payment == "" || code == "" || idate == "" || customer == "" || project == "" || (total == "" || total == 0.00 || isNaN(total)) || (gtotal == "" || gtotal == 0.00 || isNaN(gtotal)))
-        {
+        if (iStaus == "" || payment == "" || code == "" || idate == "" || customer == "" || project == "" || (total == "" || total == 0.00 || isNaN(total)) || (gtotal == "" || gtotal == 0.00 || isNaN(gtotal))) {
             if (iStaus == "") { document.getElementById("error_InvoiceStatus").style.display = "block" }
             else { document.getElementById("error_InvoiceStatus").style.display = "none" }
             if (payment == "") { document.getElementById("error_Payment").style.display = "block" }
@@ -186,6 +217,7 @@ $(document).ready(function () {
 
     // Calculate Sum
     function calculateSum() {
+        debugger;
         var sum = 0;
         $(".amount").each(function () {
             var value = $(this).text();
@@ -215,7 +247,6 @@ $(document).ready(function () {
         calculateSum();
     });
 
-   
 
 
 

@@ -78,10 +78,18 @@ namespace CloudtrixApp.Data.Migrations
                     Price = c.Double(nullable: false),
                     Quantity = c.Int(nullable: false),
                     Amount = c.Double(nullable: false),
+                    IGST = c.Double(nullable: false),
+                    IGSTAmt = c.Double(nullable: false),
+                    CGST = c.Double(nullable: false),
+                    CGSTAmt = c.Double(nullable: false),
+                    SGST = c.Double(nullable: false),
+                    SGSTAmt = c.Double(nullable: false),
+                    TotAmt = c.Double(nullable: false),
                     InvoiceId = c.Int(nullable: false),
                     CreateDate = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                     UpdateDate = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                     IsDelete = c.Boolean(nullable: false),
+                   
                 })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Invoice", t => t.InvoiceId, cascadeDelete: true)
