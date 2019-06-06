@@ -80,6 +80,13 @@
                             @Html.TextBoxFor(x => x.Phone, null, new { @class = "form-control", @placeholder = "Enter Phone Number " })
                             @Html.ValidationMessageFor(x => x.Phone, "", new { @class = "text-danger" })
                         </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.State)
+                            @Html.DropDownList("State", new SelectList(ViewBag.DDLStateID, "StateName", "StateName"), "--Select--", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.State, "", new { @class = "text-danger" })
+                        </div>
+
                         <div class="form-group">
                             @Html.LabelFor(x => x.Address)
                             @Html.TextAreaFor(x => x.Address, new { @class = "form-control", @rows = "5", @placeholder = "Address" })

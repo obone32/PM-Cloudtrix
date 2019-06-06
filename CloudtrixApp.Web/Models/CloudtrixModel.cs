@@ -32,5 +32,11 @@ namespace PharmaApp.Web.Models
         public string Message { get; set; }
         public int StateID { get; set; }
         public string StateName { get; set; }
+        public int EmployeeId { get; set; }
+        public int ProjectId { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public bool IsStateMatch { get; set; }
+        public int CustomerID { get; set; }
     }
 }

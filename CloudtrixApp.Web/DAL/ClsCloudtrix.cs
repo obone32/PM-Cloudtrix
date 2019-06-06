@@ -7,6 +7,7 @@ using System.Linq;
 using System.Data.Common;
 using System.Web;
 using System.Data.Entity.Infrastructure;
+using CloudtrixApp.Core.DataModel;
 
 namespace PharmaApp.Web.DAL
 {
@@ -220,6 +221,53 @@ namespace PharmaApp.Web.DAL
             DbCommand cmd = ClsEntityAppDatabase.GetSPName("StateMaster_ListAll");
             ClsEntityAppDatabase.AddInParameter(cmd, "@pStateID", SqlDbType.Int, _objModel.StateID);
             ClsEntityAppDatabase.AddInParameter(cmd, "@pStateName", SqlDbType.VarChar, _objModel.StateName);
+            try
+            {
+                using (var dataReader = cmd.ExecuteReader())
+                {
+                    return ((IObjectContextAdapter)CN).ObjectContext.Translate<CloudtrixModel>(dataReader as DbDataReader).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+                cmd.Parameters.Clear();
+                cmd.Dispose();
+            }
+        }
+        public List<TimeSheetModel> TimeSheet_VerifyDetails(TimeSheetModel _objModel)
+        {
+            DbCommand cmd = ClsEntityAppDatabase.GetSPName("TimeSheet_VerifyDetails");
+            ClsEntityAppDatabase.AddInParameter(cmd, "@pEmployeeId", SqlDbType.Int, _objModel.EmployeeId);
+            ClsEntityAppDatabase.AddInParameter(cmd, "@pProjectId", SqlDbType.Int, _objModel.ProjectId);
+            ClsEntityAppDatabase.AddInParameter(cmd, "@pStartTime", SqlDbType.DateTime, _objModel.StartTime);
+            ClsEntityAppDatabase.AddInParameter(cmd, "@pEndTime", SqlDbType.DateTime, _objModel.EndTime);
+            try
+            {
+                using (var dataReader = cmd.ExecuteReader())
+                {
+                    return ((IObjectContextAdapter)CN).ObjectContext.Translate<TimeSheetModel>(dataReader as DbDataReader).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+                cmd.Parameters.Clear();
+                cmd.Dispose();
+            }
+        }
+        public List<CloudtrixModel> Customer_StateVerify(CloudtrixModel _objModel)
+        {
+            DbCommand cmd = ClsEntityAppDatabase.GetSPName("Customer_StateVerify");
+            ClsEntityAppDatabase.AddInParameter(cmd, "@pCustomerID", SqlDbType.Int, _objModel.CustomerID);
             try
             {
                 using (var dataReader = cmd.ExecuteReader())

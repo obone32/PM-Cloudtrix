@@ -46,6 +46,21 @@ C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Dependency\bin\De
 C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Dependency\obj\Debug\CloudtrixApp.Dependency.csprojResolveAssemblyReference.cache
 C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Dependency\obj\Debug\PharmaApp.Dependency.dll
 C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Dependency\obj\Debug\PharmaApp.Dependency.pdb
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Dependency\bin\Debug\PharmaApp.Dependency.dll
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Dependency\bin\Debug\PharmaApp.Dependency.pdb
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Dependency\bin\Debug\Ninject.dll
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Dependency\bin\Debug\PharmaApp.Core.dll
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Dependency\bin\Debug\PharmaApp.Data.dll
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Dependency\bin\Debug\System.Web.Mvc.dll
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Dependency\bin\Debug\EntityFramework.dll
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Dependency\bin\Debug\PharmaApp.Core.pdb
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Dependency\bin\Debug\PharmaApp.Data.pdb
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Dependency\bin\Debug\Ninject.xml
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Dependency\bin\Debug\System.Web.Mvc.xml
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Dependency\bin\Debug\EntityFramework.xml
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Dependency\obj\Debug\CloudtrixApp.Dependency.csprojResolveAssemblyReference.cache
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Dependency\obj\Debug\PharmaApp.Dependency.dll
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Dependency\obj\Debug\PharmaApp.Dependency.pdb
 E:\APPS\Cloud\Sending_Project\CloudtrixApp.Dependency\bin\Debug\PharmaApp.Dependency.dll
 E:\APPS\Cloud\Sending_Project\CloudtrixApp.Dependency\bin\Debug\PharmaApp.Dependency.pdb
 E:\APPS\Cloud\Sending_Project\CloudtrixApp.Dependency\bin\Debug\Ninject.dll

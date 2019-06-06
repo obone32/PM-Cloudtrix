@@ -312,11 +312,20 @@ namespace PharmaApp.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddTimeSheet(TimeSheetModel model)
         {
-            if (ModelState.IsValid)
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    TimeSheetDropdown();
+                    _clsCloud.TimeSheet_VerifyDetails(model);
+                    _timesheetRepository.Insert(model);
+                    return RedirectToAction("TimeSheetList");
+                }
+            }
+            catch (Exception ex)
             {
                 TimeSheetDropdown();
-                _timesheetRepository.Insert(model);
-                return RedirectToAction("TimeSheetList");
+                if (ex.InnerException == null) { TempData["FFMsg"] = ex.Message; } else { TempData["FFMsg"] = ex.InnerException.Message; }
             }
             return View(model);
         }
@@ -363,6 +372,7 @@ namespace PharmaApp.Web.Controllers
         public ActionResult StoreSetting()
         {
             menuRights(8);
+            FillStateCombo();
             var settings = _storeRepository.All().FirstOrDefault();
             if (settings != null)
                 return View(settings);
@@ -392,7 +402,7 @@ namespace PharmaApp.Web.Controllers
                 settings.Web = model.Web;
                 settings.Email = model.Email;
                 settings.Address = model.Address;
-
+                settings.State = model.State;
                 if (settings.Logo != "" && logoPostedFileBase == null)
                     settings.Logo = settings.Logo;
                 else
@@ -403,6 +413,7 @@ namespace PharmaApp.Web.Controllers
                 return RedirectToAction("StoreSetting");
             }
             _storeRepository.Insert(model);
+            FillStateCombo();
             TempData["Msg"] = "Store setting updated successfully";
             return RedirectToAction("StoreSetting");
         }
@@ -557,6 +568,17 @@ namespace PharmaApp.Web.Controllers
         {
             return Json(_projectRepository.All().Where(x => x.Id == id), JsonRequestBehavior.AllowGet);
         }
+        public JsonResult GetCustomerState(int customerId = 0)
+        {
+            CloudtrixModel _objModel = new CloudtrixModel();
+            _objModel.CustomerID = customerId;
+            var result = _clsCloud.Customer_StateVerify(_objModel).FirstOrDefault();
+            if (result == null)
+                return null;
+            var jsonResult = Json(result, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
         #endregion
 
         #endregion
@@ -699,7 +721,7 @@ namespace PharmaApp.Web.Controllers
             _objModel.MenuID = menuID;
             _objModel.RoleIDs = Convert.ToString(Session["RoleID"]);
             var Rights = _clsCloud.MenuRoleRights_ListAll(_objModel).FirstOrDefault();
-            if(Rights == null)
+            if (Rights == null)
             {
                 //filterContext.Result = new RedirectResult(string.Format("/Admin/AccessDenied"));
                 //Response.RedirectToRoute("/Admin/AccessDenied");
@@ -711,7 +733,7 @@ namespace PharmaApp.Web.Controllers
                 ViewBag.IsView = Rights.IsView;
             }
         }
-        
+
         public ActionResult AccessDenied()
         {
 
