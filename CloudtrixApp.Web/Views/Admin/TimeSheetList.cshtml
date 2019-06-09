@@ -2,7 +2,6 @@
 @{
     ViewBag.Title = "TimeSheetList";
 }
-
 <div class="wraper container-fluid">
     <div class="page-title">
         @if (ViewBag.IsAdd != null && ViewBag.IsAdd == true)
@@ -16,7 +15,6 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title"> TimeSheet List </h3>
-
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -29,8 +27,13 @@
                                         </th>
                                         <th>
                                             @Html.DisplayNameFor(model => model.EntryDate)
-
-
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.StartTime)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.EndTime)
+                                        </th>
                                         <th>action</th>
                                     </tr>
                                 </thead>
@@ -42,10 +45,14 @@
                                                 @Html.DisplayFor(modelItem => item.ProjectModel.ProjectName)
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.EntryDate)
+                                                @item.EntryDate.ToString("dd-MMM-yyyy")
                                             </td>
-
-
+                                            <td>
+                                                @item.StartTime.ToString("H:mm tt")
+                                            </td>
+                                            <td>
+                                                @item.EndTime.ToString("H:mm tt")
+                                            </td>
                                             <td>
                                                 @if (ViewBag.IsAdd != null && ViewBag.IsAdd == true)
                                                 {
@@ -60,7 +67,6 @@
                                                         </a>*@
                                                 }
                                             </td>
-
                                         </tr>
                                     </tbody>
                                 }
@@ -69,7 +75,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

@@ -317,6 +317,12 @@ namespace PharmaApp.Web.Controllers
                 if (ModelState.IsValid)
                 {
                     TimeSheetDropdown();
+                    var Stime = model.StartTime.ToString("H:mm:ss tt");
+                    var Etime = model.EndTime.ToString("H:mm:ss tt");
+                    var Entime = model.EntryDate.ToString("M/d/yyyy");
+
+                    model.StartTime = Convert.ToDateTime(Entime + " " + Stime);
+                    model.EndTime = DateTime.Parse(Entime + " " + Etime);
                     _clsCloud.TimeSheet_VerifyDetails(model);
                     _timesheetRepository.Insert(model);
                     return RedirectToAction("TimeSheetList");
