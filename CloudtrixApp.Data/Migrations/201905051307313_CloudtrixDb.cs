@@ -171,6 +171,7 @@ namespace CloudtrixApp.Data.Migrations
                     EntryDate = c.DateTime(nullable: false),
                     StartTime = c.DateTime(nullable: false),
                     EndTime = c.DateTime(nullable: false),
+                    TotTime = c.String(),
                     WorkDetails = c.String(),
                     CreateDate = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                     UpdateDate = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),

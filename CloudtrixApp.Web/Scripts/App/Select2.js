@@ -21,8 +21,9 @@ $(function () { // will trigger when the document is ready
     }); //Initialise any date pickers
    
     $('.timepicker').timepicker({
-        'minTime': '10:00am',
-        'maxTime': '8:30pm',
+        'timeFormat': 'H:i',
+        'minTime': '10:00',
+        'maxTime': '20:30',
         autoclose: true
     });
 });

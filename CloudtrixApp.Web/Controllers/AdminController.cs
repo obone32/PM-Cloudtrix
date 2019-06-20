@@ -323,8 +323,20 @@ namespace PharmaApp.Web.Controllers
 
                     model.StartTime = Convert.ToDateTime(Entime + " " + Stime);
                     model.EndTime = DateTime.Parse(Entime + " " + Etime);
-                    _clsCloud.TimeSheet_VerifyDetails(model);
-                    _timesheetRepository.Insert(model);
+
+                    CloudtrixModel _obj = new CloudtrixModel();
+                    _obj.ProjectId = model.ProjectId;_obj.EmployeeId = model.EmployeeId;
+                    _obj.StartTime = model.StartTime;_obj.EndTime = model.EndTime;
+                    var Data = _clsCloud.TimeSheet_VerifyDetails(_obj).FirstOrDefault();
+                    if (_obj.IsFound)
+                    {
+                        TempData["FFMsg"] = "Time Slot Already Exit";
+                        return View(model);
+                    }
+                    else
+                    {
+                        _timesheetRepository.Insert(model);
+                    }
                     return RedirectToAction("TimeSheetList");
                 }
             }
@@ -338,7 +350,9 @@ namespace PharmaApp.Web.Controllers
         public ActionResult TimeSheetList()
         {
             menuRights(7);
-            return View(_timesheetRepository.All(x => x.EmployeeModel));
+            CloudtrixModel _objModel = new CloudtrixModel();
+            var Data = _clsCloud.TimeSheet_Listall(_objModel).ToList();
+            return View(Data);
         }
         [HttpGet]
         public ActionResult EditTimeSheet(int TimeSheetId)
@@ -371,6 +385,15 @@ namespace PharmaApp.Web.Controllers
             return RedirectToAction("TimeSheetList");
         }
 
+        public ActionResult TimeSheetReport(int Id=0)
+        {
+            CloudtrixModel _objModel = new CloudtrixModel();
+            _objModel.ProjectId = Id;
+            FillProjectCombo();
+            var Data = _clsCloud.TimeSheet_Report(_objModel).ToList();
+            return View(Data);
+        }
+        
         #endregion
 
         #region Store Settings 
@@ -758,6 +781,23 @@ namespace PharmaApp.Web.Controllers
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
 
+        }
+        public void FillProjectCombo()
+        {
+            try
+            {
+                CloudtrixModel _objModel = new CloudtrixModel();
+                var DDLProjectData = _clsCloud.Project_Listall(_objModel);
+                if (DDLProjectData != null && DDLProjectData.Count > 0)
+                    ViewBag.DDLProjectID = DDLProjectData;
+                else
+                    ViewBag.DDLProjectID = new List<SelectListItem> { };
+            }
+            catch (Exception ex)
+            {
+                ViewBag.DDLProjectID = new List<SelectListItem> { };
+                throw ex;
+            }
         }
         #endregion
     }

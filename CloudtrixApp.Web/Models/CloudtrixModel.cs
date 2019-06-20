@@ -8,6 +8,7 @@ namespace PharmaApp.Web.Models
 {
     public class CloudtrixModel
     {
+        public int Id { get; set; }
         public int RoleID { get; set; }
         [Required]
         public string RoleName { get; set; }
@@ -38,5 +39,15 @@ namespace PharmaApp.Web.Models
         public DateTime EndTime { get; set; }
         public bool IsStateMatch { get; set; }
         public int CustomerID { get; set; }
+        public bool IsFound { get; set; }
+        public string ProjectName { get; set; }
+        public string EmployeeName { get; set; }
+        public DateTime EntryDate { get; set; }
+        [DataType(DataType.Time)]
+        public string WorkDetails { get; set; }
+        public string TotTime { get; set; }
+        public decimal TotalHour { get; set; }
+        public decimal TotalCost { get; set; }
+        public decimal HourlyRate { get; set; }
     }
 }

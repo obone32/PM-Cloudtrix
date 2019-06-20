@@ -239,7 +239,7 @@ namespace PharmaApp.Web.DAL
                 cmd.Dispose();
             }
         }
-        public List<TimeSheetModel> TimeSheet_VerifyDetails(TimeSheetModel _objModel)
+        public List<CloudtrixModel> TimeSheet_VerifyDetails(CloudtrixModel _objModel)
         {
             DbCommand cmd = ClsEntityAppDatabase.GetSPName("TimeSheet_VerifyDetails");
             ClsEntityAppDatabase.AddInParameter(cmd, "@pEmployeeId", SqlDbType.Int, _objModel.EmployeeId);
@@ -250,7 +250,7 @@ namespace PharmaApp.Web.DAL
             {
                 using (var dataReader = cmd.ExecuteReader())
                 {
-                    return ((IObjectContextAdapter)CN).ObjectContext.Translate<TimeSheetModel>(dataReader as DbDataReader).ToList();
+                    return ((IObjectContextAdapter)CN).ObjectContext.Translate<CloudtrixModel>(dataReader as DbDataReader).ToList();
                 }
             }
             catch (Exception ex)
@@ -286,6 +286,72 @@ namespace PharmaApp.Web.DAL
                 cmd.Dispose();
             }
         }
-        
+
+        public List<CloudtrixModel> TimeSheet_Listall(CloudtrixModel _objModel)
+        {
+            DbCommand cmd = ClsEntityAppDatabase.GetSPName("TimeSheet_Listall");
+            try
+            {
+                using (var dataReader = cmd.ExecuteReader())
+                {
+                    return ((IObjectContextAdapter)CN).ObjectContext.Translate<CloudtrixModel>(dataReader as DbDataReader).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+                cmd.Parameters.Clear();
+                cmd.Dispose();
+            }
+        }
+
+        public List<CloudtrixModel> TimeSheet_Report(CloudtrixModel _objModel)
+        {
+            DbCommand cmd = ClsEntityAppDatabase.GetSPName("TimeSheet_Report");
+            ClsEntityAppDatabase.AddInParameter(cmd, "@pProjectId", SqlDbType.Int, _objModel.ProjectId);
+            try
+            {
+                using (var dataReader = cmd.ExecuteReader())
+                {
+                    return ((IObjectContextAdapter)CN).ObjectContext.Translate<CloudtrixModel>(dataReader as DbDataReader).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+                cmd.Parameters.Clear();
+                cmd.Dispose();
+            }
+        }
+
+        public List<CloudtrixModel> Project_Listall(CloudtrixModel _objModel)
+        {
+            DbCommand cmd = ClsEntityAppDatabase.GetSPName("Project_Listall");
+            try
+            {
+                using (var dataReader = cmd.ExecuteReader())
+                {
+                    return ((IObjectContextAdapter)CN).ObjectContext.Translate<CloudtrixModel>(dataReader as DbDataReader).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+                cmd.Parameters.Clear();
+                cmd.Dispose();
+            }
+        }
     }
 }

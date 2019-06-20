@@ -1,0 +1,96 @@
+﻿@model IEnumerable<PharmaApp.Web.Models.CloudtrixModel>
+@{
+    ViewBag.Title = "Time Sheet Report";
+}
+<div class="wraper container-fluid">
+
+    <div class="row">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"> TimeSheet List </h3>
+                    </div>
+                    <div class="form-group">
+                        @Html.DropDownList("ProjectId", new SelectList(ViewBag.DDLProjectID, "Id", "ProjectName"), "--Select--", new { @class = "form-control" })
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <table class="table table-hover" id="example">
+                                    <thead>
+                                        <tr>
+
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.EmployeeName)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.TotalHour)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.HourlyRate)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.TotalCost)
+                                            </th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+
+                                            <tr>
+
+                                                <td>
+                                                    @Html.DisplayFor(model => item.EmployeeName)
+                                                </td>
+                                                <td>
+                                                    @item.TotalHour
+                                                </td>
+                                                <td>
+                                                    @string.Format("{0:0,0.00}", item.HourlyRate)
+                                                </td>
+                                                <td>
+                                                    @string.Format("{0:0,0.00}", item.TotalCost)
+                                                </td>
+
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css" rel="stylesheet" />
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+
+<script type="text/javascript">
+    $('#example').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'csv', 'excel', 'pdf', 'print'
+        ]
+    });
+    $("#ProjectId").change(function () {
+        //window.location = 'http://www.domain.com/mypage?id=' + this.value
+        document.location = '/Admin/TimeSheetReport?id=' + this.value;
+    });
+    document.title = '@ViewBag.Title';
+</script>
+

@@ -31,6 +31,6 @@ namespace CloudtrixApp.Core.DataModel
         [DataType(DataType.Time)]
         public DateTime EndTime { get; set; }
         public string WorkDetails { get; set; }
-
+        public string TotTime { get; set; }
     }
 }

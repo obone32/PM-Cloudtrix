@@ -69,12 +69,10 @@ C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtri
 C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\PharmaApp.Core.dll
 C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\System.Web.Mvc.dll
-C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\PharmaApp.Core.pdb
 C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\EntityFramework.xml
 C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\System.Web.Mvc.xml
-C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\Microsoft.Web.Infrastructure.xml
 C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.csprojResolveAssemblyReference.cache
 C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.Migrations.CloudtrixDb.resources
 C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.csproj.GenerateResource.Cache
