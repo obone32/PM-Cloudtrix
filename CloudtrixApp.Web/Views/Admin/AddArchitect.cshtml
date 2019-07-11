@@ -3,7 +3,6 @@
     ViewBag.Title = "AddArchitect";
 }
 
-
 <div class="wraper container-fluid">
     <div class="page-title">
         <h3 class="title">Architect </h3>
@@ -28,18 +27,136 @@
                             @Html.TextBoxFor(x => x.Description, null, new { @class = "form-control", @placeholder = "Please Enter Description" })
                             @Html.ValidationMessageFor(x => x.Description, "", new { @class = "text-danger" })
                         </div>
+                        <div style="border :1px solid #ccc;padding:30px;margin:30px;">
+                            <div class="form-group">
+                                <label for="Description"> Name: </label>
+                                @Html.TextBox("Name", null, new { @class = "form-control", @placeholder = "Enter Name", autocomplete = "off" })
+                            </div>
 
-                            <button type="submit" class="btn btn-primary">
-                                Submit
-                            </button>
+                            <div class="form-group">
+                                <label for="Description"> Email: </label>
+                                @Html.TextBox("Email", null, new { @class = "form-control", @placeholder = "Enter Email", autocomplete = "off" })
+                            </div>
 
-                            @Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer, @class = "btn btn-default" })
+                            <div class="form-group">
+                                <label for="Description"> Mobile: </label>
+                                @Html.TextBox("Mobile", null, new { @class = "form-control", @placeholder = "Enter Mobile", autocomplete = "off" })
+                            </div>
+
+                            <div class="form-group ">
+                                <br />
+                                <button type="button" id="addTo" class="btn btn-info" style="float:right">
+                                    Add To List
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="panel-body">
+                            <table class="table table-hover table-responsive" id="detailsTable">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th style="width:40px">Name</th>
+                                        <th>Email</th>
+                                        <th>Mobile</th>
+                                        <th style="width:20px"></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                        <input id="BtnSa" class="btn btn-success col-md-3 pull-right" type="submit" value="Save Architect" />
+
+                        @Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer, @class = "btn btn-default" })
                     }
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
 
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    //Add to List
+    $("#addTo").click(function (e) {
+        e.preventDefault();
+        debugger;
+        
+            var productId = $("#Name").val(),
+                name = $("#Name").val(),
+                email = $("#Email").val(),
+                 mobile = $("#Mobile").val(),
+                detailsTableBody = $("#detailsTable tbody");
+
+            var productItem = '<tr> <td> ' + '0' +
+                ' </td> + <td>' + name +
+                '</td><td>' + email +
+                '</td><td>' + mobile +
+                '</td><td><a data-itemId="0" href="#" class="delItem"><i class="fa fa-trash"></i></a></td></tr>';
+            detailsTableBody.append(productItem);
+            $('#Name').val('');
+            $('#Email').val('');
+            $('#Mobile').val('');
+        
+    });
+
+    // Save the Form with details
+    $("#BtnSa").click(function (e) {
+        debugger;
+        e.preventDefault();
+      
+            var orderArr = [];
+            orderArr.length = 0;
+            $.each($("#detailsTable tbody tr"),
+                function () {
+                    orderArr.push({
+                       
+                        Name: $(this).find('td:eq(1)').html(),
+                        Email: $(this).find('td:eq(2)').html(),
+                        Mobile: $(this).find('td:eq(3)').html(),
+
+                    })
+                });
+            var data = JSON.stringify({
+                ArchitectName: $("#ArchitectName").val(),
+                Description: $("#Description").val(),
+                Items: orderArr
+            });
+            
+            console.log(data);
+            $.when(saveOrder(data)).then(function (response) {
+                console.log(response);
+                toastr.success(response.message); location.href = "/Admin/ArchitectList"
+            }).fail(function (err) { toastr.error(response.message) })
+    });
+
+    //Function for Save Order and Update Order
+    function saveOrder(data) {
+        debugger;
+        return $.ajax({
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            type: 'POST',
+            url: "/Admin/AddArchitect",
+            data: data
+        })
+    }
+
+    $(document).on('click', 'a.delItem', function (e) {
+        e.preventDefault();
+        var $self = $(this); $(this).parents('tr').css("background-color", "#1f306f").fadeOut(800, function () {
+            $(this).remove();
+        })
+    })
+</script>

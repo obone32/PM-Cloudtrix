@@ -52,6 +52,8 @@ namespace CloudtrixApp.Web.Controllers
                 {
                     HttpContext.Session["EmployeeEmail"] = _objModel.EmployeeEmail;
                     HttpContext.Session["RoleID"] = _objModel.RoleID;
+                    HttpContext.Session["EmployeeId"] = _objModel.EmployeeId;
+                    HttpContext.Session["IsAdmin"] = _objModel.IsAdmin;
                     _objModel.IsSuccess = true;_objModel.Message = "Success";
                     _clsCloud.LoginHistory_Update(_objModel);
                     _clsCloud.Tras.Commit();

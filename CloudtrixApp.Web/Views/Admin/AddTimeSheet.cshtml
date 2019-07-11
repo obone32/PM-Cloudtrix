@@ -29,9 +29,22 @@
                         @Html.AntiForgeryToken()
                         <div class="form-group">
                             @Html.LabelFor(x => x.EmployeeId)
-                            @Html.DropDownListFor(x => x.EmployeeId,
+
+                            @if (Convert.ToInt16(Session["IsAdmin"]) == 1)
+                            {
+                                @Html.DropDownListFor(x => x.EmployeeId,
                                     new SelectList((IEnumerable<SelectListItem>)ViewBag.employee, "Value", "Text"), "Select Employee ",
                                     htmlAttributes: new { @class = "", id = "Employee" })
+                            }
+                            else
+                            {
+                                @Html.DropDownListFor(x => x.EmployeeId,
+                                    new SelectList((IEnumerable<SelectListItem>)ViewBag.employee, "Value", "Text", Convert.ToInt16(Session["EmployeeId"])), "Select Employee ",
+                                    htmlAttributes: new { @class = "", id = "Employee", @disabled = "disabled" })
+
+                                @Html.HiddenFor(model => model.EmployeeId, new { value = Convert.ToInt16(Session["EmployeeId"]) })
+                            }
+
                             @Html.ValidationMessageFor(x => x.EmployeeId, "", new { @class = "text-danger" })
                         </div>
 
@@ -83,6 +96,7 @@
     <script src="~/Content/adminFront/assets/plugins/timepicker/bootstrap-datepicker.js"></script>
     @Scripts.Render("~/bundles/App3")
     <script type="text/javascript">
+        $("#Employee").select2({ width: "100%" });
         $('#StartTime').change(function () {
             var sTime = $('#StartTime').val();
             var eTime = $('#EndTime').val();

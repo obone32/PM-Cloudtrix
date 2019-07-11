@@ -13,6 +13,26 @@ namespace CloudtrixApp.Data.Migrations
                 Sql("INSERT INTO Customer (Name,Email,Phone, CreateDate, UpdateDate,IsDelete) VALUES ('Walk in Customer', 'customer@gmail.com', '0000000000', '02-03-2018','02-03-2018', 'false')");
                 Sql("INSERT INTO StoreSetting (Logo,StoreName,State,Email, Phone, Currency, Address, CreateDate,UpdateDate,IsDelete, web) VALUES ('/Content/adminFront/assets/img/2.png', 'CloudTRIX','Gujrat','sunil@cloudtrix.in', '0000000000', '$', 'Mumbai, India', '02-03-2018','23-04-2019', 'false', 'www.cloudtrix.in')");
             }
+
+
+            CreateTable(
+                "dbo.Associate",
+                c => new
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    ArchitectId = c.Int(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 30),
+                    Mobile = c.String(),
+                    Email = c.String(),
+                    CreateDate = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                    UpdateDate = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                    IsDelete = c.Boolean(nullable: false),
+                })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Architect", t => t.ArchitectId, cascadeDelete: true)
+                .Index(t => t.ArchitectId);
+
+
             CreateTable(
                 "dbo.Architect",
                 c => new
@@ -207,13 +227,14 @@ namespace CloudtrixApp.Data.Migrations
             DropForeignKey("dbo.InvoiceItems", "InvoiceId", "dbo.Invoice");
             DropForeignKey("dbo.Invoice", "ProjectId", "dbo.Project");
             DropForeignKey("dbo.Project", "CustomerId", "dbo.Customer");
-            DropForeignKey("dbo.Project", "ArchitectId", "dbo.Architect");
+            DropForeignKey("dbo.Associate", "ArchitectId", "dbo.Architect");
             DropIndex("dbo.TimeSheet", new[] { "ProjectId" });
             DropIndex("dbo.TimeSheet", new[] { "EmployeeId" });
             DropIndex("dbo.Project", new[] { "CustomerId" });
             DropIndex("dbo.Project", new[] { "ArchitectId" });
             DropIndex("dbo.Invoice", new[] { "ProjectId" });
             DropIndex("dbo.InvoiceItems", new[] { "InvoiceId" });
+            DropIndex("dbo.Associate", new[] { "ArchitectId" });
             DropTable("dbo.UserAccount");
             DropTable("dbo.TimeSheet");
             DropTable("dbo.StoreSetting");
@@ -223,6 +244,7 @@ namespace CloudtrixApp.Data.Migrations
             DropTable("dbo.Employee");
             DropTable("dbo.Customer");
             DropTable("dbo.Architect");
+            DropTable("dbo.Associate");
         }
     }
 }

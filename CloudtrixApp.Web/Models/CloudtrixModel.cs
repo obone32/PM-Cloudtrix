@@ -22,6 +22,7 @@ namespace PharmaApp.Web.Models
         public bool IsAdd { get; set; }
         public bool IsUpdate { get; set; }
         public bool IsView { get; set; }
+        public int IsAdmin { get; set; }
         public string MenuName { get; set; }
         public string EmployeeEmail { get; set; }
         public string Password { get; set; }
@@ -49,5 +50,10 @@ namespace PharmaApp.Web.Models
         public decimal TotalHour { get; set; }
         public decimal TotalCost { get; set; }
         public decimal HourlyRate { get; set; }
+        public string EmployeeNames { get; set; }
+        public int ArchitectId { get; set; }
+        public string Name { get; set; }
+        public string Mobile { get; set; }
+        public string Email { get; set; }
     }
 }

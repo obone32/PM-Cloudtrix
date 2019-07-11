@@ -458,6 +458,7 @@
     <Content Include="Content\adminFront\assets\plugins\vector-map\jquery.vmap.world.js" />
     <Content Include="Content\adminFront\assets\plugins\vector-map\jqvmap.css" />
     <Content Include="Content\adminFront\assets\plugins\vector-map\vmap-init.js" />
+    <Content Include="Content\bootstrap-multiselect.css" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -507,6 +508,7 @@
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="DBFiles\06Jun2019.sql" />
+    <Content Include="DBFiles\11Jul2019_DBFiles.sql" />
     <Content Include="DBFiles\20Jun2019_Query.sql" />
     <Content Include="DBFiles\altertable_19May2019.sql" />
     <Content Include="DBFiles\DataQuery_19May2019.sql" />
@@ -520,6 +522,7 @@
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\App\App.js" />
+    <Content Include="Scripts\App\bootstrap-multiselect.js" />
     <Content Include="Scripts\App\DummyScript.js" />
     <Content Include="Scripts\App\Invoice.js" />
     <Content Include="Scripts\App\jquery.timepicker.css" />
@@ -665,6 +668,8 @@
     <Content Include="Views\Home\_Navigation.cshtml" />
     <Content Include="Views\Admin\AccessDenied.cshtml" />
     <Content Include="Views\Admin\TimeSheetReport.cshtml" />
+    <Content Include="Views\Admin\employeeView.cshtml" />
+    <Content Include="Views\Admin\AssociateView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

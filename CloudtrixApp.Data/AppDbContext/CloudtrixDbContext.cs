@@ -11,6 +11,7 @@ namespace CloudtrixApp.Data.AppDbContext
     public class CloudtrixDbContext  : DbContext
     {
         public DbSet<ArchitectModel> Architects { get; set; }
+        public DbSet<ArchitectItemModel> ArchitectItemModel { get; set; }
         public DbSet<EmployeeModel> Employee { get; set; }
         public DbSet<CustomerModel> Customers{ get; set; }
         public DbSet<StoreSettingModel> StoreSetting { get; set; }

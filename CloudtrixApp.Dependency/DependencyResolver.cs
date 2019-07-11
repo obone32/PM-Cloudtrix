@@ -25,6 +25,7 @@ namespace CloudtrixApp.Dependency
         public void Register(IKernel kernel)
         {
             kernel.Bind<IArchitectRepository>().To<ArchitectRepository>();
+            kernel.Bind<IArchitechItemRepository>().To<ArchitechItemRespository>();
             kernel.Bind<IEmployeeRepository>().To<EmployeeRepository>();
             kernel.Bind<ICustomerRepository>().To<CustomerRepository>();
             kernel.Bind<IProjectRepository>().To<ProjectRepository>();

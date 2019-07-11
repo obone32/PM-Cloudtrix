@@ -353,5 +353,50 @@ namespace PharmaApp.Web.DAL
                 cmd.Dispose();
             }
         }
+        public List<CloudtrixModel> Project_ListallEmployee(CloudtrixModel _objModel)
+        {
+            DbCommand cmd = ClsEntityAppDatabase.GetSPName("Project_ListallEmployee");
+            ClsEntityAppDatabase.AddInParameter(cmd, "@pId", SqlDbType.Int, _objModel.Id);
+            try
+            {
+                using (var dataReader = cmd.ExecuteReader())
+                {
+                    return ((IObjectContextAdapter)CN).ObjectContext.Translate<CloudtrixModel>(dataReader as DbDataReader).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+                cmd.Parameters.Clear();
+                cmd.Dispose();
+            }
+        }
+
+        public List<CloudtrixModel> Associate_ListAll(CloudtrixModel _objModel)
+        {
+            DbCommand cmd = ClsEntityAppDatabase.GetSPName("Associate_ListAll");
+            ClsEntityAppDatabase.AddInParameter(cmd, "@pArchitectId", SqlDbType.Int, _objModel.ArchitectId);
+            try
+            {
+                using (var dataReader = cmd.ExecuteReader())
+                {
+                    return ((IObjectContextAdapter)CN).ObjectContext.Translate<CloudtrixModel>(dataReader as DbDataReader).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+                cmd.Parameters.Clear();
+                cmd.Dispose();
+            }
+        }
     }
 }

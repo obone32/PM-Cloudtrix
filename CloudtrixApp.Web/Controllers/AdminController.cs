@@ -19,6 +19,7 @@ namespace PharmaApp.Web.Controllers
     [BaseController]
     public class AdminController : Controller
     {
+        private readonly IArchitechItemRepository _ArchitechItemRepository;
         private readonly IArchitectRepository _architectRepository;
         private readonly IEmployeeRepository _employeeRepository;
         private readonly ITimeSheetRepository _timesheetRepository;
@@ -30,7 +31,9 @@ namespace PharmaApp.Web.Controllers
         ClsCloudtrix _clsCloud = new ClsCloudtrix();
 
 
-        public AdminController(IArchitectRepository architectRepository,
+        public AdminController(
+                               IArchitechItemRepository ArchitechItemRepository,
+                               IArchitectRepository architectRepository,
                                IEmployeeRepository employeeRepository,
                                ITimeSheetRepository timesheetRepository,
                                ICustomerRepository customerRepository,
@@ -39,6 +42,7 @@ namespace PharmaApp.Web.Controllers
                                IInvoiceItemRepository InvoiceItemRepository,
                                IInvoiceRepository InvoiceRepository)
         {
+            _ArchitechItemRepository = ArchitechItemRepository;
             _architectRepository = architectRepository;
             _employeeRepository = employeeRepository;
             _timesheetRepository = timesheetRepository;
@@ -78,7 +82,6 @@ namespace PharmaApp.Web.Controllers
             return View();
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult AddArchitect(ArchitectModel model)
         {
             if (ModelState.IsValid)
@@ -257,6 +260,12 @@ namespace PharmaApp.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                var EmployeeIdresult = string.Empty;
+                if (model.EmployeeIds_List != null)
+                {
+                    EmployeeIdresult = string.Join(",", model.EmployeeIds_List);
+                }
+                model.EmployeeIds = Convert.ToString(EmployeeIdresult);
                 ProjectDropdown();
                 _projectRepository.Insert(model);
                 return RedirectToAction("ProjectList");
@@ -617,6 +626,7 @@ namespace PharmaApp.Web.Controllers
         {
             ViewBag.architect = _architectRepository.ArchitectForDropdown();
             ViewBag.customer = _customerRepository.CustomerForDropdown();
+            ViewBag.employee = _employeeRepository.EmployeeForDropdown();
         }
         #endregion
 
@@ -796,6 +806,36 @@ namespace PharmaApp.Web.Controllers
             catch (Exception ex)
             {
                 ViewBag.DDLProjectID = new List<SelectListItem> { };
+                throw ex;
+            }
+        }
+
+        public PartialViewResult employeeView(int Id = 0)
+        {
+            try
+            {
+                CloudtrixModel _ObjModel = new CloudtrixModel();
+                _ObjModel.Id = Id;
+                _ObjModel = _clsCloud.Project_ListallEmployee(_ObjModel).FirstOrDefault();
+                return PartialView(_ObjModel);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public PartialViewResult AssociateView(int Id = 0)
+        {
+            try
+            {
+                CloudtrixModel _ObjModel = new CloudtrixModel();
+                _ObjModel.ArchitectId = Id;
+                var Data = _clsCloud.Associate_ListAll(_ObjModel).ToList();
+                return PartialView(Data);
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }

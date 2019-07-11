@@ -2,7 +2,6 @@
 @{
     ViewBag.Title = "ArchitectList";
 }
-
 <div class="wraper container-fluid">
     <div class="page-title">
         @if (ViewBag.IsAdd != null && ViewBag.IsAdd == true)
@@ -16,7 +15,6 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title"> Architect List </h3>
-
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -29,8 +27,10 @@
                                         </th>
                                         <th>
                                             @Html.DisplayNameFor(model => model.Description)
-
-
+                                        </th>
+                                        <th>
+                                            Associate
+                                        </th>
                                         <th>action</th>
                                     </tr>
                                 </thead>
@@ -44,8 +44,9 @@
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.Description)
                                             </td>
-
-
+                                            <td>
+                                                <a href="javascript:void(0);" class="employeeView" data-id="@item.Id">View</a>
+                                            </td>
                                             <td>
                                                 @if (ViewBag.IsAdd != null && ViewBag.IsAdd == true)
                                                 {
@@ -60,7 +61,6 @@
                                                         </a>*@
                                                 }
                                             </td>
-
                                         </tr>
                                     </tbody>
                                 }
@@ -69,7 +69,47 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+
+    <div class="modal fade" id="employeeModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="DivClose" type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body scroll">
+                    <div id='employeeView'></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-tgs" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $("#datatable").on("click", ".employeeView", function () {
+        var Id = $(this).attr("data-id");
+        var options = { "backdrop": "static", keyboard: true };
+        $.ajax({
+            type: "GET",
+            url: "/Admin/AssociateView?Id=" + Id,
+            contentType: "application/json; charset=utf-8",
+            data: "{}",
+            datatype: "json",
+            success: function (data) {
+                $('#employeeView').html(data);
+                $('#employeeModal').modal('show');
+            },
+        });
+    });
+</script>
+<style>
+    a {
+        color: #337ab7;
+        text-decoration: none;
+    }
+</style>
