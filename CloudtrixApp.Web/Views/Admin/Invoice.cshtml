@@ -55,7 +55,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="Name"> Customer : </label>
-                        <select id="Customer1" class="">
+                        <select id="Customer" class="clsCustomer">
                             <option value="">Select Customer</option>
                         </select>
                         <small id="error_Customer" class="form-text error_msg col-md-offset-2 "> Customer Name is Required</small>
@@ -80,32 +80,123 @@
                             <small id="error_description" class="form-text error_msg">Description is required</small>
                         </div>
                     </div>
-                    <div class="form-inline">
-                        <div class="col-md-2">
+                    <div class="form-inline col-sm-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="Quantity"> Quantity : </label>
                                 @Html.TextBox("Quantity", null, new { @class = "form-control", @style = "width : 150px", @type = "number", @placeholder = "Enter Quantity ", autocomplete = "off" })
                                 <small id="error_Quantity" class="form-text error_msg">Quantity is required</small>
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                             <div class="form-group">
-                                <label for="Price"> Rate : </label><br />
+                                <label for="Price"> Rate : </label>
                                 @Html.TextBox("Price", null, new { @class = "form-control", @type = "number", @style = "width : 150px", @placeholder = "Enter Rate ", autocomplete = "off" })
                                 <small id="error_price" class="form-text error_msg">Rate is required</small><br />
                             </div>
                         </div>
                     </div>
-                    <br /><br />
-                    <div class="col-md-6">
-                        <div class="form-group ">
-                            <br />
-                            <button type="submit" id="addToList" class="btn btn-info">
-                                Add To List
-                            </button>
+
+                    <div class="form-inline col-sm-6" style="margin-top: 10px;">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Quantity"> Amount : </label>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+
+                                @Html.TextBox("Amount", null, new { @class = "form-control", @type = "number", @style = "width : 150px", @placeholder = "", autocomplete = "off", @readonly = "readonly" })
+                                <small id="error_price" class="form-text error_msg">Rate is required</small><br />
+                            </div>
                         </div>
                     </div>
-                </form>
+                    <div id="divIGST">
+                        <div class="form-inline col-sm-6">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="Quantity"> IGST : </label>
+                                    @Html.TextBox("IGST", null, new { @class = "form-control", @style = "width : 150px", @type = "number", @placeholder = "Enter Percentage ", autocomplete = "off" })
+                                    @Html.ValidationMessageFor(x => x.IGST, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="Price"> IGST Amount : </label>
+                                    @Html.TextBox("IGSTAmt", null, new { @class = "form-control", @type = "number", @style = "width : 150px", @placeholder = "", autocomplete = "off", @readonly = "readonly" })
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="divCGST">
+                        <div class="form-inline col-sm-6">
+                        </div>
+                        <div class="form-inline col-sm-6">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="Quantity"> CGST : </label>
+                                    @Html.TextBox("CGST", null, new { @class = "form-control", @style = "width : 150px", @type = "number", @placeholder = "Enter Percentage ", autocomplete = "off" })
+                                    @Html.ValidationMessageFor(x => x.CGST, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="Price"> CGST Amount : </label>
+                                    @Html.TextBox("CGSTAmt", null, new { @class = "form-control", @type = "number", @style = "width : 150px", @placeholder = "", autocomplete = "off", @readonly = "readonly" })
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-inline col-sm-6">
+                        </div>
+                        <div class="form-inline col-sm-6">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="Quantity"> SGST : </label>
+                                    @Html.TextBox("SGST", null, new { @class = "form-control", @style = "width : 150px", @type = "number", @placeholder = "Enter Percentage ", autocomplete = "off" })
+                                    @Html.ValidationMessageFor(x => x.SGST, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="Price"> SGST Amount : </label>
+                                    @Html.TextBox("SGSTAmt", null, new { @class = "form-control", @type = "number", @style = "width : 150px", @placeholder = "", autocomplete = "off", @readonly = "readonly" })
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="form-inline col-sm-6">
+                        </div>
+
+                        <div class="form-inline col-sm-6" style="margin-top: 10px;">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="Quantity">Total Amount : </label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    @Html.TextBox("TotAmt", null, new { @class = "form-control", @type = "number", @style = "width : 150px", @placeholder = "", autocomplete = "off", @readonly = "readonly" })
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <br /><br />
+                        <div class="form-inline col-sm-6">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <br />
+                                <button type="submit" id="addToList" class="btn btn-info">
+                                    Add To List
+                                </button>
+                            </div>
+                        </div>
+</form>
                 <div class="col-md-12">
                     <div class="col-md-12">
                         <br />
@@ -118,10 +209,17 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th style="width:400px">Description</th>
+                                            <th style="width:40px">Description</th>
                                             <th>Unit</th>
                                             <th>Qty</th>
                                             <th>Amt</th>
+                                            <th>IGST</th>
+                                            <th>IGST Amt</th>
+                                            <th>CGST</th>
+                                            <th>CGST Amt</th>
+                                            <th>SGST</th>
+                                            <th>SGST Amt</th>
+                                            <th>Total Amt</th>
                                             <th style="width:20px"></th>
 
                                         </tr>
@@ -129,6 +227,13 @@
                                     <tbody></tbody>
                                     <tfoot>
                                         <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                             <td></td>
                                             <td></td>
                                             <td></td>
@@ -210,6 +315,86 @@
     @Scripts.Render("~/bundles/App3")
 
     <script type="text/javascript">
+        $("#divIGST").hide();
+        $("#divCGST").hide();
+        $('.clsCustomer').change(function () {
+            $("#divIGST").hide();
+            $("#divCGST").hide();
+            $('#Project').empty();
+            $('#TotAmt').val('');
+            $.ajax({
+                type: "GET", url: "/Admin/GetCustomerState",
+                datatype: "Json",
+                data: { customerId: $('#Customer').val() },
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                   
+                    if (data.IsStateMatch) {
+                        $("#divCGST").show();
+                    } else {
+                        $("#divIGST").show();
+                    }
+                   
+                }
+            })
+        });
 
+      
+
+        $('#Price, #Quantity').change(function () {
+            var sum = 0;
+            $('#Quantity').text(sum.toFixed(2));
+            $('#Price').text(sum.toFixed(2));
+            $('#Amount').text(sum.toFixed(2));
+            $('#TotAmt').text(sum.toFixed(2));
+            var a = parseFloat($('#Quantity').val()).toFixed(2);
+            var b = parseFloat($('#Price').val()).toFixed(2);
+            $('#Amount').val(a * b);
+            $('#TotAmt').val(a * b);
+        });
+        $('#IGST').change(function () {
+            var sum = 0;
+            $('#Amount').text(sum.toFixed(2));
+            $('#TotAmt').text(sum.toFixed(2));
+            $('#IGST').text(sum.toFixed(2));
+            var a = parseFloat($('#Amount').val()).toFixed(2);
+            var b = parseFloat($('#IGST').val()).toFixed(2);
+            var c = parseFloat((a * b) / 100).toFixed(2);
+            var d = parseFloat(parseFloat(a) + parseFloat(c)).toFixed(2);
+            $('#IGSTAmt').val(c);
+            $('#TotAmt').val(d);
+        });
+        $('#CGST').change(function () {
+            var sum = 0;
+            $('#Amount').text(sum.toFixed(2));
+            $('#TotAmt').text(sum.toFixed(2));
+            $('#CGST').text(sum.toFixed(2));
+            var e = $('#SGSTAmt').val();
+            if (e == "") {
+                e = 0;
+            }
+            var a = parseFloat($('#Amount').val()).toFixed(2);
+            var b = parseFloat($('#CGST').val()).toFixed(2);
+            var c = parseFloat((a * b) / 100).toFixed(2);
+            var d = parseFloat(parseFloat(e) +parseFloat(a) + parseFloat(c)).toFixed(2);
+            $('#CGSTAmt').val(c);
+            $('#TotAmt').val(d);
+        });
+        $('#SGST').change(function () {
+            var sum = 0;
+            $('#Amount').text(sum.toFixed(2));
+            $('#TotAmt').text(sum.toFixed(2));
+            $('#SGST').text(sum.toFixed(2));
+            var e = $('#CGSTAmt').val();
+            if (e == "") {
+                e = 0;
+            }
+            var a = parseFloat($('#Amount').val()).toFixed(2);
+            var b = parseFloat($('#SGST').val()).toFixed(2);
+            var c = parseFloat((a * b) / 100).toFixed(2);
+            var d = parseFloat(parseFloat(e) + parseFloat(a) + parseFloat(c)).toFixed(2);
+            $('#SGSTAmt').val(c);
+            $('#TotAmt').val(d);
+        });
     </script>
 }

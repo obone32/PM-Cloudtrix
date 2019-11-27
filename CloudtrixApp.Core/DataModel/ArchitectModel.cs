@@ -16,5 +16,12 @@ namespace CloudtrixApp.Core.DataModel
         [StringLength(30)]
         public string ArchitectName { get; set; }
         public string Description { get; set; }
+
+        public ICollection<ArchitectItemModel> Items { get; set; }
+
+        public ArchitectModel()
+        {
+            Items = new List<ArchitectItemModel>();
+        }
     }
 }

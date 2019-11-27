@@ -1,9 +1,7 @@
 ﻿$("#Architect").select2({ width: "100%" });
 $("#Customer1").select2({ width: "100%" });
-$("#Customer").select2({ width: "100%" });
 $("#Project").select2({ width: "100%" });
-$("#Employee").select2({ width: "100%" });
-$("#PaymentStatus").select2({width: "100%"});
+
 
 
 
@@ -23,20 +21,12 @@ $(function () { // will trigger when the document is ready
     }); //Initialise any date pickers
    
     $('.timepicker').timepicker({
-        'minTime': '10:00am',
-        'maxTime': '8:30pm',
+        'timeFormat': 'H:i',
+        'minTime': '10:00',
+        'maxTime': '20:30',
         autoclose: true
     });
 });
 
-// DOB
-    function checkDOB() {
-        var dateString = document.getElementById('id_dateOfBirth').value;
-        var myDate = new Date(dateString);
-        var today = new Date();
-        if ( myDate > today ) { 
-            $('#id_dateOfBirth').after('<p>You cannot enter a date in the future!.</p>');
-            return false;
-        }
-        return true;
-    }
+// TimeSpan
+

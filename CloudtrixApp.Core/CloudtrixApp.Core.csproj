@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppData\AppData.cs" />
+    <Compile Include="DataModel\ArchitechItemModel.cs" />
     <Compile Include="DataModel\ArchitectModel.cs" />
     <Compile Include="DataModel\Base\BaseModel.cs" />
     <Compile Include="DataModel\CustomerModel.cs" />
@@ -64,20 +65,17 @@
     <Compile Include="DataModel\InvoiceItemsModel.cs" />
     <Compile Include="DataModel\InvoiceModel.cs" />
     <Compile Include="DataModel\ProjectModel.cs" />
-    <Compile Include="DataModel\ReceiptModel.cs" />
-    <Compile Include="DataModel\PaymentStatusModel.cs" />
     <Compile Include="DataModel\StoreSettingModel.cs" />
     <Compile Include="DataModel\TimeSheetModel.cs" />
     <Compile Include="DataModel\UserAccountModel.cs" />
+    <Compile Include="Interface\IArchitechItemRepository.cs" />
     <Compile Include="Interface\Base\IBaseRepository.cs" />
     <Compile Include="Interface\IArchitectRepository.cs" />
     <Compile Include="Interface\ICustomerRepository.cs" />
     <Compile Include="Interface\IEmployeeRepository.cs" />
     <Compile Include="Interface\IInvoiceItemRepository.cs" />
     <Compile Include="Interface\IInvoiceRepository.cs" />
-    <Compile Include="Interface\IPaymentStatusRepository.cs" />
     <Compile Include="Interface\IProjectRepository.cs" />
-    <Compile Include="Interface\IReceiptRepository.cs" />
     <Compile Include="Interface\IStoreSettingRepository.cs" />
     <Compile Include="Interface\ITimeSheetRepository.cs" />
     <Compile Include="Interface\IUserRepository.cs" />

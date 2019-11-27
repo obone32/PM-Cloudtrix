@@ -1,19 +1,20 @@
-﻿@model IEnumerable<CloudtrixApp.Core.DataModel.TimeSheetModel>
+﻿@model IEnumerable<PharmaApp.Web.Models.CloudtrixModel>
 @{
     ViewBag.Title = "TimeSheetList";
 }
-
 <div class="wraper container-fluid">
     <div class="page-title">
-        <a href="@Url.Action("AddTimeSheet", "Admin")" class="btn btn-primary pull-left">Add TimeSheet </a>
-        <br />
+        @if (ViewBag.IsAdd != null && ViewBag.IsAdd == true)
+        {
+            <a href="@Url.Action("AddTimeSheet", "Admin")" class="btn btn-primary pull-left">Add TimeSheet </a>
+            <br />
+        }
     </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title"> TimeSheet List </h3>
-
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -22,49 +23,74 @@
                                 <thead>
                                     <tr>
                                         <th>
-                                            @Html.DisplayNameFor(model => model.ProjectModel.ProjectName)
+                                            @Html.DisplayNameFor(model => model.ProjectName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.EmployeeName)
                                         </th>
                                         <th>
                                             @Html.DisplayNameFor(model => model.EntryDate)
-
-
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.StartTime)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.EndTime)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TotTime)
+                                        </th>
                                         <th>action</th>
                                     </tr>
                                 </thead>
                                 @foreach (var item in Model)
                                 {
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ProjectModel.ProjectName)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.EntryDate)
-                                            </td>
-
-
-                                            <td>
-                                                <a href="@Url.Action("EditTimeSheet", "Admin", new {TimeSheetId = item.Id})" class="btn btn-icon btn-warning btn-xs m-b-5">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ProjectName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => item.EmployeeName)
+                                        </td>
+                                        <td>
+                                            @item.EntryDate.ToString("dd-MMM-yyyy")
+                                        </td>
+                                        <td>
+                                            @item.StartTime.ToString("H:mm tt")
+                                        </td>
+                                        <td>
+                                            @item.EndTime.ToString("H:mm tt")
+                                        </td>
+                                        <td>
+                                            @item.TotTime
+                                        </td>
+                                        <td>
+                                            @if (ViewBag.IsAdd != null && ViewBag.IsAdd == true)
+                                                {
+                                                <a href="@Url.Action("EditTimeSheet", "Admin", new { TimeSheetId = item.Id })" class="btn btn-icon btn-warning btn-xs m-b-5">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                <a href="@Url.Action("DeleteTimeSheet", "Admin", new {TimeSheetId = item.Id})" onclick="return confirm('Are you sure you want to Remove this Time Sheet?')" class="btn btn-icon btn-danger btn-xs m-b-5">
+                                                <a href="@Url.Action("DeleteTimeSheet", "Admin", new { TimeSheetId = item.Id })" onclick="return confirm('Are you sure you want to Remove this Time Sheet?')" class="btn btn-icon btn-danger btn-xs m-b-5">
                                                     <i class="fa fa-remove"></i>
                                                 </a>
                                                 @*<a onclick="alert('Some delete operation has been restricted in demo version')" class="btn btn-icon btn-danger btn-xs m-b-5">
                                                      <i class="fa fa-remove"></i>
                                                     </a>*@
-                                            </td>
-
-                                        </tr>
-                                    </tbody>
+                                                }
+                                        </td>
+                                    </tr>
+                                </tbody>
                                 }
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+    <div class="page-title">
+        <a href="@Url.Action("TimeSheetReport", "Admin")" class="btn btn-primary pull-left">TimeSheet Report</a>
+        <br />
+    </div>
 </div>
-

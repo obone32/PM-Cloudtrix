@@ -26,9 +26,11 @@ namespace CloudtrixApp.Core.DataModel
         public ProjectModel ProjectModel { get; set; }
 
         public DateTime EntryDate { get; set; }
+        [DataType(DataType.Time)]
         public DateTime StartTime { get; set; }
+        [DataType(DataType.Time)]
         public DateTime EndTime { get; set; }
         public string WorkDetails { get; set; }
-
+        public string TotTime { get; set; }
     }
 }

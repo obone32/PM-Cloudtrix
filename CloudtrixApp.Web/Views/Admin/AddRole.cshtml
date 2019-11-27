@@ -1,0 +1,89 @@
+﻿@model PharmaApp.Web.Models.CloudtrixModel
+@{
+    ViewBag.Title = "AddRole";
+}
+
+<div class="wraper container-fluid">
+    @if (TempData["FFMsg"] != null)
+            {
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                ×
+            </button>
+            @TempData["FFMsg"].ToString()
+        </div>
+    }
+    <div class="page-title">
+        <h3 class="title">Role </h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">New Role</h3>
+                </div>
+                <div class="panel-body">
+                    @using (Html.BeginForm("AddRole", "Admin", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(x => x.RoleID)
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.RoleName)
+                            @Html.TextBoxFor(x => x.RoleName, null, new { @class = "form-control", @placeholder = "Enter Role Name " })
+                            @Html.ValidationMessageFor(x => x.RoleName, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.RoleDesc)
+                            @Html.TextBoxFor(x => x.RoleDesc, null, new { @class = "form-control", @placeholder = "Please Role Discription" })
+                            @Html.ValidationMessageFor(x => x.RoleDesc, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-12" style="height:400px;scrollbar-base-color:azure;overflow:auto">
+
+                            <div class="container-fluid">
+
+
+                                <table id="example" class="display" cellspacing="0" width="100%">
+                                    @foreach (var itemParent in ViewBag.RightsList)
+                                    {
+                                        <thead>
+                                            <tr>
+                                                <th>@itemParent.MenuName</th>
+                                                <th>Add</th>
+                                                <th>View</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                         
+                                            <tr>
+                                                <td><br /></td>
+                                                <td>
+                                                    <input type="checkbox" onclick="checkboxAdd(@itemParent.MenuID);"  name="checkboxAdd_@itemParent.MenuID" class="checkboxAdd_@itemParent.MenuID" checked="@itemParent.IsAdd" />
+                                                </td>
+                                              
+                                                <td>
+                                                    <input type="checkbox" onclick="checkboxView(@itemParent.MenuID);" name="checkboxView_@itemParent.MenuID" class="checkboxView_@itemParent.MenuID" checked="@itemParent.IsView" />
+                                                    <input type="hidden" name="menu_@itemParent.MenuID" value="@itemParent.MenuID" />
+                                                    <input type="hidden" name="MenuRights_@itemParent.MenuID" value="@itemParent.MenuRightsID" />
+                                                </td>
+
+                                            </tr>
+                                         
+                                        </tbody>
+                                     
+                                    }
+                                </table>
+                            </div>
+
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Submit
+                        </button>
+
+                        @Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer, @class = "btn btn-default" })
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<PharmaApp.Web.Models.CloudtrixModel>
+@{
+    ViewBag.Title = "Role List";
+}
+
+<div class="wraper container-fluid">
+    <div class="page-title">
+        @if (ViewBag.IsAdd != null && ViewBag.IsAdd == true)
+        {
+            <a href="@Url.Action("AddRole", "Admin")" class="btn btn-primary pull-left">Add Role </a>
+            <br />
+        }
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Role List </h3>
+
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <table class="table table-hover" id="datatable">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Role Name
+                                        </th>
+                                        <th>
+                                            Description
+                                        </th>
+                                        <th>action</th>
+                                    </tr>
+                                </thead>
+                                @foreach (var item in Model)
+                                {
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.RoleName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.RoleDesc)
+                                            </td>
+
+
+                                            <td>
+                                                @if (ViewBag.IsAdd != null && ViewBag.IsAdd == true)
+                                                {
+                                                    <a href="@Url.Action("AddRole", "Admin", new { RoleID = item.RoleID })" class="btn btn-icon btn-warning btn-xs m-b-5">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                    <a href="@Url.Action("DeleteRole", "Admin", new { RoleID = item.RoleID })" onclick="return confirm('Are you sure you want to Remove this Role?')" class="btn btn-icon btn-danger btn-xs m-b-5">
+                                                        <i class="fa fa-remove"></i>
+                                                    </a>
+                                                }
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

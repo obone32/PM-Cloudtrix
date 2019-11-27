@@ -11,7 +11,7 @@
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
             ×
         </button>
-       @TempData["Msg"].ToString()
+        @TempData["Msg"].ToString()
     </div>
 }
 @if (TempData["FMsg"] != null)
@@ -40,7 +40,7 @@
                     @using (Html.BeginForm("StoreSetting", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
                         @Html.AntiForgeryToken()
-                        @Html.HiddenFor(x=> x.Id)
+                        @Html.HiddenFor(x => x.Id)
 
                         <div class="col-md-12">
                             <div class="form-group">
@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             @Html.LabelFor(x => x.StoreName)
                             @Html.TextBoxFor(x => x.StoreName, null, new { @class = "form-control", @placeholder = "Enter Name " })
@@ -80,15 +80,24 @@
                             @Html.TextBoxFor(x => x.Phone, null, new { @class = "form-control", @placeholder = "Enter Phone Number " })
                             @Html.ValidationMessageFor(x => x.Phone, "", new { @class = "text-danger" })
                         </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.State)
+                            @Html.DropDownList("State", new SelectList(ViewBag.DDLStateID, "StateName", "StateName"), "--Select--", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.State, "", new { @class = "text-danger" })
+                        </div>
+
                         <div class="form-group">
                             @Html.LabelFor(x => x.Address)
                             @Html.TextAreaFor(x => x.Address, new { @class = "form-control", @rows = "5", @placeholder = "Address" })
                             @Html.ValidationMessageFor(x => x.Address, "", new { @class = "text-danger" })
                         </div>
-                      
-                        <button type="submit" class="btn btn-purple">
-                            Submit
-                        </button>
+                        if (ViewBag.IsAdd != null && ViewBag.IsAdd == true)
+                        {
+                            <button type="submit" class="btn btn-purple">
+                                Submit
+                            </button>
+                        }
                     }
                 </div>
             </div>
@@ -97,21 +106,21 @@
     </div>
 </div>
 
-@section scripts{ 
+@section scripts{
 
-<script type="text/javascript">
-    $(document).ready(function () {
+    <script type="text/javascript">
+        $(document).ready(function () {
 
 
-});
+        });
 
-    function PreviewImage() {
-        var oFReader = new FileReader();
-        oFReader.readAsDataURL(document.getElementById("FileUpload").files[0]);
+        function PreviewImage() {
+            var oFReader = new FileReader();
+            oFReader.readAsDataURL(document.getElementById("FileUpload").files[0]);
 
-        oFReader.onload = function (oFREvent) {
-            document.getElementById("UploadFile").src = oFREvent.target.result;
+            oFReader.onload = function (oFREvent) {
+                document.getElementById("UploadFile").src = oFREvent.target.result;
+            };
         };
-    };
-</script>
+    </script>
 }

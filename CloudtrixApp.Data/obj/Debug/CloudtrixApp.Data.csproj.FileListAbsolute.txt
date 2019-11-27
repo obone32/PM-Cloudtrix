@@ -30,3 +30,87 @@ E:\Downloads\codecanyon-21717916-pharmax-pharmacy-management-system\Project\Send
 E:\Downloads\codecanyon-21717916-pharmax-pharmacy-management-system\Project\Sending_Project\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.csproj.GenerateResource.Cache
 E:\Downloads\codecanyon-21717916-pharmax-pharmacy-management-system\Project\Sending_Project\CloudtrixApp.Data\obj\Debug\PharmaApp.Data.dll
 E:\Downloads\codecanyon-21717916-pharmax-pharmacy-management-system\Project\Sending_Project\CloudtrixApp.Data\obj\Debug\PharmaApp.Data.pdb
+C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Data.dll.config
+C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Data.dll
+C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Data.pdb
+C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\EntityFramework.dll
+C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Core.dll
+C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\System.Web.Mvc.dll
+C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Core.pdb
+C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\EntityFramework.xml
+C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\System.Web.Mvc.xml
+C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.csprojResolveAssemblyReference.cache
+C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.Migrations.CloudtrixDb.resources
+C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.csproj.GenerateResource.Cache
+C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Data\obj\Debug\PharmaApp.Data.dll
+C:\Users\Nikunj\Desktop\S_project\Sending_Project\CloudtrixApp.Data\obj\Debug\PharmaApp.Data.pdb
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Data.dll.config
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Data.dll
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Data.pdb
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\EntityFramework.dll
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Core.dll
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\System.Web.Mvc.dll
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Core.pdb
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\EntityFramework.xml
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Data\bin\Debug\System.Web.Mvc.xml
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.csprojResolveAssemblyReference.cache
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.Migrations.CloudtrixDb.resources
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.csproj.GenerateResource.Cache
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Data\obj\Debug\PharmaApp.Data.dll
+C:\Users\dell 4310 i5\Desktop\S_project\S_project\Sending_Project\CloudtrixApp.Data\obj\Debug\PharmaApp.Data.pdb
+C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\PharmaApp.Data.dll.config
+C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\PharmaApp.Data.dll
+C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\PharmaApp.Data.pdb
+C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\EntityFramework.dll
+C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\PharmaApp.Core.dll
+C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\System.Web.Mvc.dll
+C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\PharmaApp.Core.pdb
+C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\EntityFramework.xml
+C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\bin\Debug\System.Web.Mvc.xml
+C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.csprojResolveAssemblyReference.cache
+C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.Migrations.CloudtrixDb.resources
+C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.csproj.GenerateResource.Cache
+C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\obj\Debug\PharmaApp.Data.dll
+C:\Users\Nikunj\Desktop\S_project\PM-Cloudtrix-Cloudtrix_1\PM-Cloudtrix-Cloudtrix_1\CloudtrixApp.Data\obj\Debug\PharmaApp.Data.pdb
+C:\Users\Nikunj\Desktop\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Data.dll.config
+C:\Users\Nikunj\Desktop\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Data.dll
+C:\Users\Nikunj\Desktop\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Data.pdb
+C:\Users\Nikunj\Desktop\Sending_Project\CloudtrixApp.Data\bin\Debug\EntityFramework.dll
+C:\Users\Nikunj\Desktop\Sending_Project\CloudtrixApp.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nikunj\Desktop\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Core.dll
+C:\Users\Nikunj\Desktop\Sending_Project\CloudtrixApp.Data\bin\Debug\System.Web.Mvc.dll
+C:\Users\Nikunj\Desktop\Sending_Project\CloudtrixApp.Data\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Nikunj\Desktop\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Core.pdb
+C:\Users\Nikunj\Desktop\Sending_Project\CloudtrixApp.Data\bin\Debug\EntityFramework.xml
+C:\Users\Nikunj\Desktop\Sending_Project\CloudtrixApp.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nikunj\Desktop\Sending_Project\CloudtrixApp.Data\bin\Debug\System.Web.Mvc.xml
+C:\Users\Nikunj\Desktop\Sending_Project\CloudtrixApp.Data\bin\Debug\Microsoft.Web.Infrastructure.xml
+C:\Users\Nikunj\Desktop\Sending_Project\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.csprojResolveAssemblyReference.cache
+C:\Users\Nikunj\Desktop\Sending_Project\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.Migrations.CloudtrixDb.resources
+C:\Users\Nikunj\Desktop\Sending_Project\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.csproj.GenerateResource.Cache
+C:\Users\Nikunj\Desktop\Sending_Project\CloudtrixApp.Data\obj\Debug\PharmaApp.Data.dll
+C:\Users\Nikunj\Desktop\Sending_Project\CloudtrixApp.Data\obj\Debug\PharmaApp.Data.pdb
+E:\APPS\Cloud\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Data.dll.config
+E:\APPS\Cloud\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Data.dll
+E:\APPS\Cloud\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Data.pdb
+E:\APPS\Cloud\Sending_Project\CloudtrixApp.Data\bin\Debug\EntityFramework.dll
+E:\APPS\Cloud\Sending_Project\CloudtrixApp.Data\bin\Debug\EntityFramework.SqlServer.dll
+E:\APPS\Cloud\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Core.dll
+E:\APPS\Cloud\Sending_Project\CloudtrixApp.Data\bin\Debug\System.Web.Mvc.dll
+E:\APPS\Cloud\Sending_Project\CloudtrixApp.Data\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\APPS\Cloud\Sending_Project\CloudtrixApp.Data\bin\Debug\PharmaApp.Core.pdb
+E:\APPS\Cloud\Sending_Project\CloudtrixApp.Data\bin\Debug\EntityFramework.xml
+E:\APPS\Cloud\Sending_Project\CloudtrixApp.Data\bin\Debug\EntityFramework.SqlServer.xml
+E:\APPS\Cloud\Sending_Project\CloudtrixApp.Data\bin\Debug\System.Web.Mvc.xml
+E:\APPS\Cloud\Sending_Project\CloudtrixApp.Data\bin\Debug\Microsoft.Web.Infrastructure.xml
+E:\APPS\Cloud\Sending_Project\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.csprojResolveAssemblyReference.cache
+E:\APPS\Cloud\Sending_Project\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.Migrations.CloudtrixDb.resources
+E:\APPS\Cloud\Sending_Project\CloudtrixApp.Data\obj\Debug\CloudtrixApp.Data.csproj.GenerateResource.Cache
+E:\APPS\Cloud\Sending_Project\CloudtrixApp.Data\obj\Debug\PharmaApp.Data.dll
+E:\APPS\Cloud\Sending_Project\CloudtrixApp.Data\obj\Debug\PharmaApp.Data.pdb

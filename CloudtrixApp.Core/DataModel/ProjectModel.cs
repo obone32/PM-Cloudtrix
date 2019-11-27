@@ -37,5 +37,12 @@ namespace CloudtrixApp.Core.DataModel
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? EndDate { get; set; }
+
+        [DisplayName("Employee List")]
+        public string EmployeeIds { get; set; }
+
+        public string[] EmployeeIds_List { get; set; }
+
+
     }
 }

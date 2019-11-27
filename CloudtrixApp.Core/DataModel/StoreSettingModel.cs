@@ -34,6 +34,7 @@ namespace CloudtrixApp.Core.DataModel
         public string Currency { get; set; }
         [Required]
         public string Address { get; set; }
-
+        [Required]
+        public string State { get; set; }
     }
 }

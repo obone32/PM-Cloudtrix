@@ -3,7 +3,8 @@
     ViewBag.Title = "Edit Employee";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css" rel="stylesheet" />
+<link href="~/Content/adminFront/assets/plugins/timepicker/bootstrap-datepicker.min.css" rel="stylesheet" />
 
 <div class="wraper container-fluid">
     <div class="page-title">
@@ -25,10 +26,60 @@
                             @Html.TextBoxFor(x => x.EmployeeName, null, new { @class = "form-control", @placeholder = "Enter Employee Name " })
                             @Html.ValidationMessageFor(x => x.EmployeeName, "", new { @class = "text-danger" })
                         </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.EmployeeEmail)
+                            @Html.TextBoxFor(x => x.EmployeeEmail, null, new { @class = "form-control", @placeholder = "Please Enter Email", @readonly="readonly" })
+                            @Html.ValidationMessageFor(x => x.EmployeeEmail, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Password)
+                            @Html.PasswordFor(x => x.Password, new { @class = "form-control", @placeholder = "Please Enter Password" })
+                            @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.EmployeePhone)
+                            @Html.TextBoxFor(x => x.EmployeePhone, null, new { @class = "form-control", @placeholder = "Please Enter Phone" })
+                            @Html.ValidationMessageFor(x => x.EmployeePhone, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.EmployeeGender)
+                            @Html.DropDownList("EmployeeGender", new List<SelectListItem> { new SelectListItem { Text = "--Select--", Value = "" }, new SelectListItem { Text = "Male", Value = "Male" }, new SelectListItem { Text = "Female", Value = "Female" } }, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.EmployeeGender, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.EmployeeDOB)
+                            @Html.TextBoxFor(x => x.EmployeeDOB, "{0:d MMM yyyy}", new { @class = "form-control datepicker", @placeholder = "Please Enter Date Of Birth" })
+                            @Html.ValidationMessageFor(x => x.EmployeeDOB, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.EmployeeDOJ)
+                            @Html.TextBoxFor(x => x.EmployeeDOJ, "{0:dd MMM yyyy}", new { @class = "form-control datepicker", @placeholder = "Please Enter Date Of Joining" })
+                            @Html.ValidationMessageFor(x => x.EmployeeDOJ, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.EmployeeAddress)
+                            @Html.TextBoxFor(x => x.EmployeeAddress, null, new { @class = "form-control", @placeholder = "Please Enter Address" })
+                            @Html.ValidationMessageFor(x => x.EmployeeAddress, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.RoleID)
+                            @Html.DropDownList("RoleID", new SelectList(ViewBag.DDLRoleID, "RoleID", "RoleName"), "--Select--", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.RoleID, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.IsActive)
+                            @Html.CheckBoxFor(m => m.IsActive)
+
+                        </div>
 
                         <div class="form-group">
                             @Html.LabelFor(x => x.Description)
-                            @Html.TextBoxFor(x => x.Description, null, new { @class = "form-control", @placeholder = "Enter Email " })
+                            @Html.TextBoxFor(x => x.Description, null, new { @class = "form-control", @placeholder = "Enter Description " })
                             @Html.ValidationMessageFor(x => x.Description, "", new { @class = "text-danger" })
                         </div>
                         <button type="submit" class="btn btn-purple">
@@ -41,6 +92,26 @@
 
     </div>
 </div>
+@section scripts {
+    <script src="~/Content/adminFront/assets/plugins/timepicker/bootstrap-datepicker.js"></script>
+    @Scripts.Render("~/bundles/App3")
+
+    <script type="text/javascript">
+        $('#EmployeeDOJ').datepicker({
+            format: 'mm/dd/yyyy',
+            startDate: '-10y'
+        });
+
+        $('#EmployeeDOB').datepicker({
+            format: 'mm/dd/yyyy',
+            startDate: new Date('1900-1-5'),
+            endDate: new Date('2009-12-31')
+        });
+    </script>
+}
+
+
+
 
 
 
